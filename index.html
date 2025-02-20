@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
-    <style type="text/tailwindcss">
-      @theme {
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
         --font-poppins: "Poppins", "sans-serif";
         --shadow: 0 20px 20px #0000000a;
         --drop-shadow-cartNum: -6px 9px 24px -6px #ee4343ad;
@@ -22,117 +22,117 @@
       }
      
     </style>
-    <style>
- .linkStyle{
-        font-size: 16px;
-        font-weight: 500;
-        transition: all 0.3s;
-      }
-      .linkStyle:hover{
-        color: #f55253;
-      }
-      .card{
-        z-index: 2;
-      }
-      .card .cardHover{
-        z-index: -2;
-      }
-    </style>
-    <title>Document</title>
-  </head>
-  <body class="font-poppins text-[#2E2E2E]">
-    <header class="mx-32 mt-8 mb-36">
-      <nav class="flex justify-between items-center">
-        <img src="/assets/logo.png" alt="" class="logo h-10" />
-        <div class="menuLinks flex gap-10">
-          <a href="#" class="link linkStyle">Home</a>
-          <a href="#" class="link linkStyle ">Menu</a>
-          <a href="#" class="link linkStyle ">Service</a>
-          <a href="#" class="link linkStyle ">Shop</a>
-        </div>
-        <div class="searchBar flex items-center">
-          <input
-            type="text"
-            name="Search"
-            id="search"
-            class="bg-[url('/assets/search.png')] px-11 py-5 text-sm rounded-lg bg-no-repeat bg-[10px_center] shadow"
-            placeholder="Search"
-          />
-          <div class="cart relative">
-            <img
-              src="/assets/cart.png"
-              alt=""
-              class="px-5 py-4 border-l border-[#f2f2f2] bg-white"
-            />
-            <p
-              class="itemNum absolute -top-4 bg-red-500 text-white text-center p-1 h-7 w-7 text-sm rounded-full right-0 drop-shadow-cartNum"
-            >
-              2
-            </p>
-          </div>
-        </div>
-      </nav>
+  <style>
+    .linkStyle {
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
 
+    .linkStyle:hover {
+      color: #f55253;
+    }
 
+    .card {
+      z-index: 2;
+    }
 
-      <div class="heroSec grid grid-cols-[1fr_auto] my-10 items-center
-      justify-between">
-        <div class="heroLeft self-end">
-          <div class="tagLine">
-            <p class="text-base line leading-4 py-3 pl-5 pr-4 inline my-auto bg-[#FDECEC] rounded-full text-red-500">
-              More than Faster
-              <img class="inline pl-2 h-6" src="/assets/strawberry.png" alt="" />
-            </p>
-          </div>
-          <h1 class="text-7xl leading-[88px]    font-bold my-5 tracking-tight">Groceries delivered in as little as <span class="font-medium text-red-500">2 hours</span></h1>
-          <p class="text-lg leading-8 text-[#676767] w-4/5 mb-14">
-            Grocen atssures fresh grocery every morning to your family without
-            getting out in this pandemic.
+    .card .cardHover {
+      z-index: -2;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body class="font-poppins text-[#2E2E2E]">
+  <header class="mx-32 mt-8 mb-36">
+    <nav class="flex justify-between items-center">
+      <img src="/assets/logo.png" alt="" class="logo h-10" />
+      <div class="menuLinks flex gap-10">
+        <a href="#" class="link linkStyle">Home</a>
+        <a href="#" class="link linkStyle ">Menu</a>
+        <a href="#" class="link linkStyle ">Service</a>
+        <a href="#" class="link linkStyle ">Shop</a>
+      </div>
+      <div class="searchBar flex items-center">
+        <input type="text" name="Search" id="search"
+          class="bg-[url('/assets/search.png')] px-11 py-5 text-sm rounded-lg bg-no-repeat bg-[10px_center] shadow"
+          placeholder="Search" />
+        <div class="cart relative">
+          <img src="/assets/cart.png" alt="" class="px-5 py-4 border-l border-[#f2f2f2] bg-white" />
+          <p
+            class="itemNum absolute -top-4 bg-red-500 text-white text-center p-1 h-7 w-7 text-sm rounded-full right-0 drop-shadow-cartNum">
+            2
           </p>
-          <div class="CTABtns flex flex-wrap gap-8">
-            <button class="py-6 px-10 text-xl bg-[#F86061] rounded-xl text-white leading-5 font-medium">Order Now</button>
-            <button class=" cursor-pointer flex justify-between items-center group"><div class="p-7 group-hover:drop-shadow-play text-xl leading-5 font-medium"><img src="assets/play.png" class="h-4 w-4" alt=""></div> <p class="text-xl leading-5 font-medium" >Order Process</p></button>
-          </div>
-        </div>
-        <div class="heroRight">
-            <img src="/assets/HeaderImage.png"  class="w-[619px]" alt="">
         </div>
       </div>
-    </header>
+    </nav>
 
-    <section class="services bg-[#FEF5F5] py-[100px] px-52 text-center ">
-      <h6 class=" text-[#F54748] text-lg leading-6 tracking-normal mb-1">What we serve</h6>
-      <h2 class="text-[#2E2E2E] text-[40px] font-bold leading-[54px]">fruit and vegetable delivered <br> to your home</h2>
-      <div class="servicesCards grid grid-cols-3 mt-[69px] gap-12 ">
-        
-        <div class="relative group h-fit">
 
-          <div class="cardHover absolute h-full w-full bg-[#FE6A6A] top-0 left-0 rounded-xl origin-top-left group-hover:-rotate-3 transition-all duration-300
-          "></div>
-          <div class="card c1 h-[310px] relative px-7 py-14  bg-white rounded-xl ">
-            
-            
-            <img src="/assets/shipping.png"  class="mx-auto mb-[50px]" alt="">
-            <h5 class="text-xl tracking-tight font-semibold">Free shipping</h5>
-            <p class="text-sm leading-6 mt-3">Enjoy Order in a hand using the fresness of groceries</p>
-            
-          </div>
+
+    <div class="heroSec grid grid-cols-[1fr_auto] my-10 items-center
+      justify-between">
+      <div class="heroLeft self-end">
+        <div class="tagLine">
+          <p class="text-base line leading-4 py-3 pl-5 pr-4 inline my-auto bg-[#FDECEC] rounded-full text-red-500">
+            More than Faster
+            <img class="inline pl-2 h-6" src="/assets/strawberry.png" alt="" />
+          </p>
         </div>
+        <h1 class="text-7xl leading-[88px]    font-bold my-5 tracking-tight">Groceries delivered in as little as <span
+            class="font-medium text-red-500">2 hours</span></h1>
+        <p class="text-lg leading-8 text-[#676767] w-4/5 mb-14">
+          Grocen atssures fresh grocery every morning to your family without
+          getting out in this pandemic.
+        </p>
+        <div class="CTABtns flex flex-wrap gap-8">
+          <button class="py-6 px-10 text-xl bg-[#F86061] rounded-xl text-white leading-5 font-medium">Order Now</button>
+          <button class=" cursor-pointer flex justify-between items-center group">
+            <div class="p-7 group-hover:drop-shadow-play text-xl leading-5 font-medium"><img src="assets/play.png"
+                class="h-4 w-4" alt=""></div>
+            <p class="text-xl leading-5 font-medium">Order Process</p>
+          </button>
+        </div>
+      </div>
+      <div class="heroRight">
+        <img src="/assets/HeaderImage.png" class="w-[619px]" alt="">
+      </div>
+    </div>
+  </header>
 
-        <div class="relative group h-fit">
+  <section class="services bg-[#FEF5F5] py-[100px] px-52 text-center ">
+    <h6 class=" text-[#F54748] text-lg leading-6 tracking-normal mb-1">What we serve</h6>
+    <h2 class="text-[#2E2E2E] text-[40px] font-bold leading-[54px]">fruit and vegetable delivered <br> to your home</h2>
+    <div class="servicesCards grid grid-cols-3 mt-[69px] gap-12 ">
 
-          <div class="cardHover absolute h-full w-full bg-[#FE6A6A] top-0 left-0 rounded-xl origin-top-left    group-hover:-rotate-3 transition-all duration-300
+      <div class="relative group h-fit">
+
+        <div class="cardHover absolute h-full w-full bg-[#FE6A6A] top-0 left-0 rounded-xl origin-top-left group-hover:-rotate-3 transition-all duration-300
+          "></div>
+        <div class="card c1 h-[310px] relative px-7 py-14  bg-white rounded-xl ">
+
+
+          <img src="/assets/shipping.png" class="mx-auto mb-[50px]" alt="">
+          <h5 class="text-xl tracking-tight font-semibold">Free shipping</h5>
+          <p class="text-sm leading-6 mt-3">Enjoy Order in a hand using the fresness of groceries</p>
+
+        </div>
+      </div>
+
+      <div class="relative group h-fit">
+
+        <div class="cardHover absolute h-full w-full bg-[#FE6A6A] top-0 left-0 rounded-xl origin-top-left    group-hover:-rotate-3 transition-all duration-300
           "></div>
         <div class="card c2 relative h-[310px] px-7 py-14  bg-white rounded-xl">
           <img src="/assets//cash.png" class="mx-auto mb-[50px]" alt="">
           <h5 class="text-xl tracking-tight font-semibold">15 days return</h5>
           <p class="text-sm leading-6 mt-3">Order in a handy way using the freshness of the groceries.</p>
         </div>
-        </div>
+      </div>
 
-        <div class="relative group h-fit">
+      <div class="relative group h-fit">
 
-          <div class="cardHover absolute h-full w-full bg-[#FE6A6A] top-0 left-0 rounded-xl origin-top-left  group-hover:-rotate-3 transition-all duration-300
+        <div class="cardHover absolute h-full w-full bg-[#FE6A6A] top-0 left-0 rounded-xl origin-top-left  group-hover:-rotate-3 transition-all duration-300
           "></div>
         <div class="card c3 relative h-[310px] px-7 py-14  bg-white rounded-xl before:bg-[#FE6A6A] h-full w-full">
           <img src="/assets/secureCheckout.png" class="mx-auto mb-[50px]" alt="">
@@ -140,38 +140,67 @@
           <p class="text-sm leading-6 mt-3">If you get rotten items - return immediately to us.</p>
         </div>
       </div>
-      
-    </section>
 
-    <section class="feature1 px-[136px] py-[140px] grid grid-cols-[52%_48%] items-center gap-44 w-full">
-      <div class="feature1Img  relative">
-        <img src="/assets/Feature1.png" alt="" class="w-[598px]">
+  </section>
 
-        <div class="feature1Card text-center pt-7 px-5 pb-5 rounded-xl absolute -right-[10%] top-[55%] -translate-y-1/2 bg-white hover:drop-shadow-feature">
-          <div class="cardDetail ">
-            <h6 class="text-lg leading-4 tracking-tight font-bold">Melting Cheese</h6>
-            <p class="text-xs font-medium leading-3 text-[#A5A4A4] mt-2">Red Stovery</p>
-            <img class="mx-auto my-[30px]" src="/assets/stovery.png" alt="">
+  <section class="feature1 px-[136px] py-[140px] grid grid-cols-[52%_auto] items-center gap-44 w-full">
+    <div class="feature1Img  relative">
+      <img src="/assets/Feature1.png" alt="" class="w-100%">
+
+      <div
+        class="feature1Card text-center pt-7 px-5 pb-5 rounded-xl absolute -right-[10%] top-[55%] -translate-y-1/2 bg-white hover:drop-shadow-feature">
+        <div class="cardDetail ">
+          <h6 class="text-lg leading-4 tracking-tight font-bold">Melting Cheese</h6>
+          <p class="text-xs font-medium leading-3 text-[#A5A4A4] mt-2">Red Stovery</p>
+          <img class="mx-auto my-[30px] h-[73px]" src="/assets/stovery.png" alt="">
+        </div>
+
+        <div class="details">
+          <div class="rating flex items-center gap-1">
+            <img src="/assets/star.png" alt="">
+            <p>3.8</p>
           </div>
-          
-          <div class="details">
-            <div class="rating flex items-center gap-1">
-              <img src="/assets/star.png" alt="">
-              <p>3.8</p>
-            </div>
-            <div class="price flex justify-between items-center">
-              <p>$49.66</p>
-              <button class="text-4xl py-2 px-4 text-white font-extralight bg-[#F54748] rounded-lg">+</button>
-            </div>
+          <div class="price flex justify-between items-center">
+            <p class="text-2xl font-bold leading-5 tracking-tighter">$49.66</p>
+            <button class=" p-[11px] text-white font-extralight bg-[#F54748] rounded-lg"><img src="/assets/add.svg"
+                alt="Plus"></button>
           </div>
         </div>
       </div>
-      <div class="feature1Desc w-full">
-        <h6 class="text-[#03A66B] text-lg leading-6 font-medium tracking-wide">WHY CHOOSE US</h6>
-        <h2 class="text-[#2E2E2E] mb-5 text-[40px] leading-[54px] font-bold tracking-normal">Find Favorites And Discover New Ones</h2>
-        <p class="text-lg leading-7 font-normal mb-[50px] tracking-normal w-3/4">At vero eos et accusamus et iusto odio dignissimos ducimus blanditiis praesen voluptatum deleniti.</p>
-        <button class="text-xl leading-5 font-medium text-white py-6 px-10 rounded-xl bg-[#F86061]">Explore Now</button>
+    </div>
+    <div class="feature1Desc w-full">
+      <h6 class="text-[#03A66B] text-lg leading-6 font-medium tracking-wide">WHY CHOOSE US</h6>
+      <h2 class="text-[#2E2E2E] mb-5 text-[40px] leading-[54px] font-bold tracking-normal">Find Favorites And Discover
+        New Ones</h2>
+      <p class="text-lg leading-7 font-normal mb-[50px] tracking-normal">At vero eos et accusamus et iusto odio
+        dignissimos ducimus blanditiis praesen voluptatum deleniti.</p>
+      <button class="text-xl leading-5 font-medium text-white py-6 px-10 rounded-xl bg-[#F86061]">Explore Now</button>
+    </div>
+  </section>
+
+  <section class="feature2 px-[160px] flex gap-[100px] py-24 items-center">
+
+    <div class="feature1Desc w-full max-w-[50%]">
+      <h6 class="text-[#F9BA45] text-lg leading-6 font-medium tracking-wide">HOME DELIVERY</h6>
+      <h2 class="text-[#2E2E2E] mb-5 text-[40px] leading-[54px] font-bold tracking-normal">Sit at Home We Will Take Care Your Order</h2>
+      <p class="text-lg leading-7 font-normal mb-[50px] tracking-normal">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos </p>
+      <button class="text-xl leading-5 font-medium py-6 px-10 rounded-xl bg-transparent text-[#F86061] border border-[#F86061]">Explore Now</button>
+    </div>
+    <div class="feature1Img  relative">
+      <img src="/assets/feature2.png" alt="" class="w-[417px]">
+
+      <div
+        class="feature1Card text-center w-[166px] p-5 rounded-xl absolute -right-[15%] top-[55%] -translate-y-1/2 bg-white hover:drop-shadow-feature">
+        <img src="/assets/bike.png" alt="bike">
+        <h6 class="text-lg leading-4 tracking-tight font-bold pb-2">Bike Delivery</h6>
+        <p class="text-[10px] font-normal leading-4 text-[#A5A4A4] mt-2">Bicycle service ensures that your packages
+          arrive quickly</p>
       </div>
-    </section>
-  </body>
+    </div>
+    </div>
+    </div>
+  </section>
+
+</body>
+
 </html>
