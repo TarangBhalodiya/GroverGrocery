@@ -17,7 +17,8 @@
         --shadow: 0 20px 20px #0000000a;
         --drop-shadow-cartNum: -6px 9px 24px -6px #ee4343ad;
         --shadow-play: 0 20px 49px #0000001a;
-        --drop-shadow-feature: 0 60px 100px #56000014;
+        --drop-shadow-feature: ;
+        --drop-shadow-orange: 0 40px 50px #e87b004d;
         --color-small-title: #f54748;
         --color-text-dark: #2e2e2e;
         --color-text-light: #676767;
@@ -46,13 +47,16 @@
     <title>Grover</title>
   </head>
   <body class="font-poppins text-text-dark">
-
-
+    <!-- ḥeader start -->
     <header>
+      <!-- navbar start -->
       <nav class="absolute top-6 w-full">
         <div class="container mx-auto px-4">
           <div class="navbar flex items-center justify-between">
+            <!-- navbar logo -->
             <img src="/assets/logo.png" alt="logo" class="navbar-logo h-7" />
+
+            <!-- Navbar links for navigate to different pages -->
             <div
               class="navbar-menuLinks md:flex items-center gap-5 hidden md:block"
             >
@@ -77,6 +81,8 @@
                 >Shop</a
               >
             </div>
+
+            <!-- Search bar -->
             <div class="navbar-searchBar hidden sm:block sm:flex items-center">
               <input
                 type="text"
@@ -98,23 +104,35 @@
                 </p>
               </div>
             </div>
+
+            <!-- Hamburger button screen <= 768px ? enable : disable -->
             <button class="hamburger block md:hidden">
               <img src="/assets/Menu.png" alt="menu icon" />
             </button>
           </div>
         </div>
       </nav>
+      <!-- navbar end -->
     </header>
+    <!-- header end -->
 
+
+
+
+    <!-- main contant sections(Hero, Seervices, Feature, CTA) -->
     <main>
+
+      <!-- Hero section start -->
       <section class="hero">
         <div class="container mx-auto px-4">
           <div
             class="hero-contant mt-20 sm:my-32 sm:flex sm:gap-10 sm:items-center"
           >
+
+          <!-- Hero section description -->
             <div class="hero-contant-desc xl:flex-1">
               <h6
-                class="text-sm text-small-title px-4 py-2 items-center  bg-[#FDECEC] w-auto rounded-full inline xl:text-base"
+                class="text-sm text-small-title px-4 py-2 items-center bg-[#FDECEC] w-auto rounded-full inline xl:text-base"
               >
                 More than Faster
                 <img
@@ -123,11 +141,18 @@
                   class="h-6 inline"
                 />
               </h6>
-              <h1 class="text-3xl font-bold mt-5 leading-10 xl:text-7xl xl:leading-17">
+              <h1
+                class="text-3xl font-bold mt-5 leading-10 xl:text-7xl xl:leading-17 group"
+              >
                 Groceries delivered in as little as
-                <span class="text-small-title font-normal">2 hours</span>
+                <span
+                  class="text-small-title font-normal group-hover:font-bold transition-all duration-100"
+                  >2 hours</span
+                >
               </h1>
-              <p class="mt-3 text-xs sm:text-sm xl:text-lg text-text-light xl:mt-6 xl:mb-14">
+              <p
+                class="mt-3 text-xs sm:text-sm xl:text-lg text-text-light xl:mt-6 xl:mb-14"
+              >
                 Grocen atssures fresh grocery every morning to your family
                 without getting out in this pandemic.
               </p>
@@ -136,13 +161,13 @@
                 class="hero-contant-desc-btn mt-4 flex flex-col sm:flex-row gap-3 items-start sm:items-center"
               >
                 <button
-                  class="px-6 py-3 bg-[#F86061] rounded-xl text-sm text-white font-medium xl:text-xl xl:py-6 xl:px-10"
+                  class="px-6 py-3 bg-[#FDECEC] rounded-xl text-sm text-[#F86061] font-medium xl:text-xl xl:py-6 xl:px-10 border-[1px] border-[#F86061] hover:bg-[#F86061] hover:text-white transition-all duration-300"
                 >
                   Order Now
                 </button>
-                <button class="flex items-center group">
+                <button class="flex items-center group  text-sm  xl:text-xl">
                   <div
-                    class="hero-contant-desc-btn-playicon flex items-center p-7 bg-white group-hover:shadow-play text-sm"
+                    class="hero-contant-desc-btn-playicon flex items-center p-7 bg-white group-hover:shadow-play"
                   >
                     <img src="/assets/play.png" alt="play" class=" " />
                   </div>
@@ -150,44 +175,81 @@
                 </button>
               </div>
             </div>
-            <div class="hero-contant-image relative xl:flex-1">
-              <div
-                class="hero-contant-img-card1 text-center bg-white w-auto absolute top-[50%] left-0 px-10 hidden"
-              >
+
+            <!-- Hero sectio image -->
+            <div class="hero-contant-img xl:flex-1 xl:items-center">
+              <div class="hero-contant-img-container w-fit mx-auto relative">
+                <div
+                  class="hero-contant-img-card1 text-center rounded-xl px-12 pb-0 pt-2 bg-white w-auto absolute top-[50%] left-0 hidden xl:block xl:top-[15%] xl:left-[-14%] xl:-translate-x-1/2 hover:shadow-[0px_50px_80px_#00000014] transition-all duration-300"
+                >
+                  <img
+                    src="/assets/orange.png"
+                    alt="orange"
+                    class="hero-contant-img-card1-product drop-shadow-orange"
+                  />
+                  <div class="hero-contant-img-card1-desc mt-7">
+                    <h5
+                      class="text-xs font-semibold mb-5 relative before:h-1 before:w-5 before:bg-[#FFA610] before:z-10 before:absolute before:-bottom-1 before:mx-7 before:rounded-sm"
+                    >
+                      Fresh Orange
+                    </h5>
+                    <h6 class="text-xl leading-5 font-bold">$44.60</h6>
+                    <p
+                      class="text-xs leading-3 font-medium mt-1 text-text-light mb-13"
+                    >
+                      Free Shipping
+                    </p>
+                    <img
+                      src="/assets/buy.jpg"
+                      alt=""
+                      class="buy mx-auto -mb-6"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="hero-contant-img-card2 hidden xl:block xl:flex xl:items-center xl:gap-4 rounded-xl p-5 bg-white absolute top-[15%] right-[0%] hover:shadow-[0px_50px_80px_#00000014] transition-all duration-300"
+                >
+                  <img src="/assets/alarm-clock-icon.png" alt="clock" />
+                  <div class="hero-contant-img-card2-container">
+                    <h5>Delivery</h5>
+                    <p>30 Min</p>
+                  </div>
+                </div>
                 <img
-                  src="/assets/orange.png"
-                  alt="orange"
-                  class="hero-contant-img-card1-product"
+                  src="/assets/HeaderImage.png"
+                  alt="Header Image"
+                  class=""
                 />
-                <h5 class="text-xs font-semibold">Fresh Orange</h5>
-                <h6>$44.60</h6>
-                <p>Free Shipping</p>
-                <img src="/assets/buy.jpg" alt="" class="buy" />
               </div>
-              <div class="hero-contant-img-card2 hidden"></div>
-              <img
-                src="/assets/HeaderImage.png"
-                alt="Header Image"
-                class="mx-auto"
-              />
             </div>
           </div>
         </div>
       </section>
+      <!-- Hero section end -->
 
+
+      <!-- services section start -->
       <section class="services bg-[#FEF5F5] py-14 text-center">
         <div class="container mx-auto px-4">
+          <!-- Service section description -->
           <div class="service-contant mb-12">
             <h6 class="text-[#F54748] text-sm xl:text-lg">What we serve</h6>
-            <h2 class="text-[#2E2E2E] text-2xl font-bold leading-7 xl:text-5xl xl:leading-[54px]">
+            <h2
+              class="text-[#2E2E2E] text-2xl font-bold leading-7 xl:text-5xl xl:leading-[54px]"
+            >
               fruit and vegetable delivered <br />
               to your home
             </h2>
           </div>
 
+
+          <!-- Services list card -->
           <div
             class="services-card-container flex items-center gap-7 justify-center mx-auto flex-col sm:flex-row"
           >
+
+          <!-- Service 1 card -->
             <div
               class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-80 h-full"
             >
@@ -204,6 +266,7 @@
               </p>
             </div>
 
+<!-- service 2 card -->
             <div
               class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-80 h-full"
             >
@@ -216,6 +279,7 @@
               </p>
             </div>
 
+<!-- service 3 card -->
             <div
               class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-80 h-full"
             >
@@ -248,149 +312,186 @@
           </div>
         </div>
       </section>
+      <!-- services section end -->
 
+
+      <!-- Feature section start -->
       <section class="features mb-4">
         <div class="container mx-auto px-4">
+
+          <!-- feature 1 section start -->
           <div
             class="feature1 sm:flex sm:items-center sm:justify-between gap-20 xl:gap-28"
           >
-            <div class="feature1-img relative sm:flex-1">
-              <img src="/assets/Feature1.png" alt="" />
-              <div
-                class="feature1-img-card hidden sm:absolute sm:top-1/2 sm:-right-1/4 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:px-5 sm:py-7 sm:bg-white sm:rounded-xl"
-              >
-                <div class="feature1-img-card-detail">
-                  <h6
-                    class="text-lg sm:text-base leading-4 tracking-tight font-bold sm:text-center "
-                  >
-                    Melting Cheese
-                  </h6>
-                  <p
-                    class="text-xs font-medium leading-3 text-[#A5A4A4] mt-2 sm:text-center"
-                  >
-                    Red Stovery
-                  </p>
-                  <img
-                    class="mx-auto my-[30px] h-[53px]"
-                    src="/assets/stovery.png"
-                    alt=""
-                  />
-                </div>
-
-                <div class="feature1-img-card-price">
-                  <div class="rating flex items-center gap-1">
-                    <img src="/assets/star.png" alt="" />
-                    <p>3.8</p>
-                  </div>
-                  <div class="price flex justify-between items-center">
+          <!-- Feature 1 image part -->
+            <div class="feature1-img relative sm:flex-1 items:center">
+              <div class="feature1-img-container relative w-fit">
+                <img src="/assets/Feature1.png" alt="" />
+                <div
+                  class="feature1-img-card hidden sm:absolute xl:top-[58%] xl:-right-[20%] xl:-translate-x-1/2 xl:-translate-y-1/2 xl:px-5 xl:py-7 sm:bg-white xl:rounded-xl xl:block hover:shadow-[0_60px_100px_#56000014]"
+                >
+                  <div class="feature1-img-card-detail">
+                    <h6
+                      class="text-lg sm:text-base leading-4 tracking-tight font-bold sm:text-center"
+                    >
+                      Melting Cheese
+                    </h6>
                     <p
-                      class="text-2xl sm:text-xl font-bold leading-5 tracking-tighter"
+                      class="text-xs font-medium leading-3 text-[#A5A4A4] mt-2 sm:text-center"
                     >
-                      $49.66
+                      Red Stovery
                     </p>
-                    <button
-                      class="p-[11px] text-white font-extralight bg-[#F54748] rounded-lg"
-                    >
-                      <img src="/assets/add.svg" alt="Plus" />
-                    </button>
+                    <img
+                      class="mx-auto my-[30px] h-[53px]"
+                      src="/assets/stovery.png"
+                      alt=""
+                    />
+                  </div>
+
+                  <div class="feature1-img-card-price">
+                    <div class="rating flex items-center gap-1">
+                      <img src="/assets/star.png" alt="" />
+                      <p>3.8</p>
+                    </div>
+                    <div class="price flex justify-between items-center">
+                      <p
+                        class="text-2xl sm:text-xl font-bold leading-5 tracking-tighter"
+                      >
+                        $49.66
+                      </p>
+                      <button
+                        class="p-[11px] text-white font-extralight bg-[#F54748] rounded-lg"
+                      >
+                        <img src="/assets/add.svg" alt="Plus" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!-- feature 2 description -->
             <div class="feature1-contant w-full sm:flex-1 mt-10">
-              <h6 class="text-[#03A66B] text-sm sm:text-xs xl:text-lg">WHY CHOOSE US</h6>
+              <h6 class="text-[#03A66B] text-sm sm:text-xs xl:text-lg">
+                WHY CHOOSE US
+              </h6>
               <h2
                 class="text-[#2E2E2E] text-2xl font-bold leading-7 sm:text-xl xl:text-5xl xl:leading-[54px]"
               >
                 Find Favorites and Discover New Ones
               </h2>
-              <p class="text-text-light text-sm sm:text-xs mt-3 xl:text-lg xl:mt-6 xl:mb-12">
+              <p
+                class="text-text-light text-sm sm:text-xs mt-3 xl:text-lg xl:mt-6 xl:mb-12"
+              >
                 At vero eos et accusamus et iusto odio dignissimos ducimus
                 blanditiis praesen voluptatum deleniti.
               </p>
               <button
-                class="text-base sm:text-sm leading-4 font-medium text-white py-4 px-8 rounded-xl bg-[#F86061] mt-7 xl:text-xl xl:py-6 xl:px-10"
+                class="text-base sm:text-sm leading-4 font-medium text-[#F54748] py-4 px-8 rounded-xl border-[#F54748] border-[1px] mt-7 xl:text-xl xl:py-6 xl:px-10 hover:text-white hover:bg-[#F54748] transition-all duration-300"
               >
                 Explore Now
               </button>
             </div>
           </div>
+          <!-- Feature 1 section end -->
 
+          <!-- Feature 2 section start -->
           <div
-            class="feature2 mt-20 sm:flex sm:flex-row-reverse sm:justify-between sm:items-center gap-20 xl:gap-28"
+            class="feature2 mt-20 sm:flex sm:flex-row-reverse sm:justify-between sm:items-center gap-20 xl:gap-28 xl:"
           >
-            <div class="feature2-img mt-10">
-              <img src="/assets/Feature2.png" alt="" />
-              <div class="feature2-img-card hidden">
-                <img src="/assets/bike.png" alt="bike" />
-                <h6 class="text-lg leading-4 tracking-tight font-bold pb-2">
-                  Bike Delivery
-                </h6>
-                <p
-                  class="text-[10px] font-normal leading-4 text-[#A5A4A4] mt-2"
-                >
-                  Bicycle service ensures that your packages arrive quickly
-                </p>
+
+          <!-- Feature 2 image part -->
+            <div class="feature2-img mt-10 flex-1 xl:mt-0 items-center">
+              <div class="feature2-img-container relative w-fit">
+                <img src="/assets/Feature2.png" alt="" class="mx-auto" />
+
+                <div class="feature2-img-card bg-white rounded-xl hidden xl:block xl:absolute xl:top-[45%] 
+                xl:-translate-y-1/2 xl:-translate-x-1/2 xl:-right-[39%] text-center w-fit p-4  hover:shadow-[0_60px_100px_#56000014]">
+                  <img src="/assets/bike.png" alt="bike" class="bg-[#FEF5F5] rounded-xl mb-6" />
+                  <h6 class="text-base leading-4 tracking-tight font-bold pb-2">
+                    Bike Delivery
+                  </h6>
+                  <p
+                    class="text-[10px] font-normal leading-4 text-[#A5A4A4] mt-2 max-w-32 w-full"
+                  >
+                    Bicycle service ensures that your packages arrive quickly
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="feature2-contant mt-10">
-              <h6 class="text-[#F9BA45] text-sm sm:text-xs xl:text-lg">HOME DELIVERY</h6>
+
+            <!-- Feature 2 description -->
+            <div class="feature2-contant mt-10 flex-1">
+              <h6 class="text-[#F9BA45] text-sm sm:text-xs xl:text-lg">
+                HOME DELIVERY
+              </h6>
               <h2
                 class="text-text-dark text-2xl font-bold leading-7 sm:text-xl xl:text-5xl xl:leading-[54px]"
               >
                 Sit at Home We Will Take Care Your Order
               </h2>
-              <p class="text-text-light text-sm mt-3 sm:text-xs">
+              <p
+                class="text-text-light text-sm mt-3 sm:text-xs xl:text-lg xl:mt-6 xl:mb-12"
+              >
                 At vero eos et accusamus et iusto odio dignissimos ducimus qui
                 blanditiis praesentium voluptatum deleniti atque corrupti quos
               </p>
               <button
-                class="text-base sm:text-sm text-[#F86061] border-[1px] leading-4 font-medium bg-white py-4 px-8 rounded-xl border-[#F86061] mt-7"
+                class="text-base sm:text-sm text-[#F86061] border-[1px] leading-4 font-medium bg-white py-4 px-8 rounded-xl border-[#F86061] mt-7 xl:text-xl xl:py-6 xl:px-10 hover:text-white hover:bg-[#F54748] transition-all duration-300"
               >
                 Explore Now
               </button>
             </div>
           </div>
+          <!-- Feature 2 section end -->
         </div>
       </section>
+      <!-- Feature section end -->
 
-      <section class="cta bg-[#FEF5F5] py-9">
+
+      <!-- CTA section start -->
+      <section class="cta bg-[#FEF5F5] py-9 xl:py-14">
         <div
           class="container mx-auto px-4 sm:flex sm:items-center sm:flex-row-reverse sm:gap-20 sm:justify-between"
         >
-          <div class="cta-contant">
-            <h6 class="text-[#F54748] text-sm">Download our app</h6>
-            <h2 class="text-text-dark text-2xl font-bold leading-7">
+        <!-- CTA section Description -->
+          <div class="cta-contant flex-1">
+            <h6 class="text-[#F54748] text-sm xl:text-lg">Download our app</h6>
+            <h2
+              class="text-text-dark text-2xl font-bold leading-7 xl:text-5xl xl:leading-[54px]"
+            >
               Get the Groceries app order more easily.
             </h2>
-            <p class="text-text-light text-sm mt-3">
+            <p class="text-text-light text-sm mt-3 xl:text-lg xl:mt-6 xl:mb-12">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut.
             </p>
-            <div class="cta-contant-btns mt-7">
+            <div class="cta-contant-btns mt-7 xl:space-x-4">
               <button
-                class="app-store px-3 py-2 text-base border-[#EEDCDC] border-[1px] rounded-xl"
+                class="app-store px-3 py-2 text-base border-[#EEDCDC] border-[1px] rounded-xl xl:text-lg cursor-pointer hover:bg-white transition-all duration-300"
               >
                 <img
                   src="/assets/apple.png"
                   alt="app store"
-                  class="h-6 mr-3 inline"
+                  class="h-6 mr-3 inline xl:h-11"
                 />
                 App Store
               </button>
               <button
-                class="play-store px-4 py-2 text-base border-[#EEDCDC] border-[1px] rounded-xl"
+                class="play-store px-4 py-2 text-base border-[#EEDCDC] border-[1px] rounded-xl xl:text-lg cursor-pointer hover:bg-white transition-all duration-300""
               >
                 <img
                   src="/assets/playStore.png"
                   alt="play store"
-                  class="mr-3 inline h-6"
+                  class="mr-3 inline h-6 xl:h-11"
                 />
                 Play Store
               </button>
             </div>
           </div>
-          <div class="cta-img">
+
+          <!-- CTA section Image part -->
+          <div class="cta-img flex-1">
             <img
               src="/assets/mobileMockup.png"
               alt="Mobile Mockup"
@@ -399,55 +500,90 @@
           </div>
         </div>
       </section>
-    </main>
+      <!-- CTA section end -->
 
+    </main>
+<!-- main contant end -->
+
+
+
+
+    <!-- footer start -->
     <footer>
       <div class="container mx-auto px-4">
+
+        <!-- Footer top which contain company logo, small description, addresss & various links -->
         <div
           class="footer-top py-9 sm:flex sm:items-center sm:gap-5 sm:justify-between"
         >
+        <!-- Company logo & description -->
           <div class="footer-company-detail flex-1">
             <img src="/assets//logo.png" alt="logo" />
-            <p class="footer-company-detail-desc text-text-light text-sm mt-4">
+            <p
+              class="footer-company-detail-desc text-text-light text-sm mt-4 xl:text-base max-w-[40%] w-full"
+            >
               Fast delivery, which is active all over the world, serves with
               many transportation vehicles.
             </p>
           </div>
+
+          <!--various Links -->
           <div
-            class="footer-links mt-14 sm:mt-0 flex flex-wrap gap-4 justify-start"
+            class="footer-links mt-14 sm:mt-0 flex flex-wrap gap-4 justify-between flex-1"
           >
+          <!-- Company links -->
             <div class="footer-links-company">
-              <h5 class="company-head text-lg sm:text-base font-semibold">
+              <h5
+                class="company-head text-lg sm:text-base font-semibold xl:text-lg"
+              >
                 Company
               </h5>
               <div
-                class="company-link-container flex flex-col gap-2 mt-3 text-text-light text-sm"
+                class="company-link-container flex flex-col gap-2 mt-3 text-text-light text-sm xl:text-base"
               >
-                <a href="" class="company-link">About Us</a>
-                <a href="" class="company-link">Blog</a>
-                <a href="" class="company-link"> All Products</a>
-                <a href="" class="company-link">Locations Map</a>
+                <a href="" class="company-link hover:text-text-dark"
+                  >About Us</a
+                >
+                <a href="" class="company-link hover:text-text-dark">Blog</a>
+                <a href="" class="company-link hover:text-text-dark">
+                  All Products</a
+                >
+                <a href="" class="company-link hover:text-text-dark"
+                  >Locations Map</a
+                >
               </div>
             </div>
+
+            <!-- Services links -->
             <div class="footer-links-services">
-              <h5 class="services-head text-lg sm:text-base font-semibold">
+              <h5 class="services-head text-base font-semibold xl:text-lg">
                 Services
               </h5>
               <div
-                class="services-link-container flex flex-col gap-2 mt-3 text-text-light text-sm"
+                class="services-link-container flex flex-col gap-2 mt-3 text-text-light text-sm xl:text-base"
               >
-                <a href="" class="services-link">Order tracking</a>
-                <a href="" class="services-link">Wish List</a>
-                <a href="" class="services-link">My account</a>
-                <a href="" class="services-link">Terms & Conditions</a>
+                <a href="" class="services-link hover:text-text-dark"
+                  >Order tracking</a
+                >
+                <a href="" class="services-link hover:text-text-dark"
+                  >Wish List</a
+                >
+                <a href="" class="services-link hover:text-text-dark"
+                  >My account</a
+                >
+                <a href="" class="services-link hover:text-text-dark"
+                  >Terms & Conditions</a
+                >
               </div>
             </div>
+
+            <!-- Get In Touch -->
             <div class="footer-links-getInTouch">
-              <h5 class="getInTouch-head text-lg sm:text-base font-semibold">
+              <h5 class="getInTouch-head text-base font-semibold xl:text-lg">
                 Get In Touch
               </h5>
               <p
-                class="getInTouch-link mt-3 text-text-light text-sm max-w-52 w-full"
+                class="getInTouch-link mt-3 text-text-light text-sm max-w-52 w-full xl:text-base hover:text-text-dark"
               >
                 Subscribe to our weekly Newsletter and receive updates via
                 email.
@@ -455,15 +591,20 @@
             </div>
           </div>
         </div>
+
+        <!-- Footer bottom which contain copyrights, T&C & Privacy&Policy -->
         <div
-          class="footer-bottom border-t-[1px] border-[#ECECEC] py-5 flex justify-between items-center text-sm text-text-light"
+          class="footer-bottom border-t-[1px] border-[#ECECEC] py-5 flex justify-between items-center text-sm text-text-light xl:text-base"
         >
           <p>All Rights Reserved @ BESNIK 2021</p>
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Privacy & Policy</a>
+          <div class="footer-bottom-links space-x-6">
+            <a href="#" class="hover:text-text-dark">Terms & Conditions</a>
+            <a href="#" class="hover:text-text-dark">Privacy & Policy</a>
+          </div>
         </div>
       </div>
     </footer>
+    <!-- footer end -->
 
     <!-- <script>
       var slideIndex = 1;
