@@ -11,6 +11,8 @@
     />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
+    <link rel="stylesheet" href="style.css" />
+
     <style type="text/tailwindcss">
       @theme {
         --font-poppins: "Poppins", "sans-serif";
@@ -24,26 +26,11 @@
         --color-text-light: #676767;
         --spacing-inherit: inherit;
       }
+      .navbar-menu-link {
+        @apply hover:text-red-500 transition duration-300 md:text-sm font-medium xl:text-base;
+      }
     </style>
-    <style>
-      /* .linkStyle {
-      font-size: 16px;
-      font-weight: 500;
-      transition: all 0.3s;
-    }
 
-    .linkStyle:hover {
-      color: #f55253;
-    }
-
-    .card {
-      z-index: 2;
-    }
-
-    .card .cardHover {
-      z-index: -2;
-    } */
-    </style>
     <title>Grover</title>
   </head>
   <body class="font-poppins text-text-dark">
@@ -51,64 +38,50 @@
     <header>
       <!-- navbar start -->
       <nav class="absolute top-6 w-full">
-        <div class="container mx-auto px-4">
+        <div class="container">
           <div class="navbar flex items-center justify-between">
             <!-- navbar logo -->
             <img src="/assets/logo.png" alt="logo" class="navbar-logo h-7" />
 
             <!-- Navbar links for navigate to different pages -->
-            <div
-              class="navbar-menuLinks md:flex items-center gap-5 hidden md:block"
-            >
-              <a
-                href="#"
-                class="navbar-menuLinks-link linkStyle hover:text-[#F55253] transition duration-300 md:text-sm font-medium xl:text-base"
-                >Home</a
-              >
-              <a
-                href="#"
-                class="navbar-menuLinks-link linkStyle hover:text-[#F55253] transition duration-300 md:text-sm font-medium xl:text-base"
-                >Menu</a
-              >
-              <a
-                href="#"
-                class="navbar-menuLinks-link linkStyle hover:text-[#F55253] transition duration-300 md:text-sm font-medium xl:text-base"
-                >Service</a
-              >
-              <a
-                href="#"
-                class="navbar-menuLinks-link linkStyle hover:text-[#F55253] transition duration-300 md:text-sm font-medium xl:text-base"
-                >Shop</a
-              >
+            <div class="navbar-menu-links md:flex items-center gap-5 hidden">
+              <a href="#" class="navbar-menu-link">Home</a>
+              <a href="#" class="navbar-menu-link">Menu</a>
+              <a href="#" class="navbar-menu-link">Service</a>
+              <a href="#" class="navbar-menu-link">Shop</a>
             </div>
 
-            <!-- Search bar -->
-            <div class="navbar-searchBar hidden sm:block sm:flex items-center">
-              <input
-                type="text"
-                name="Search"
-                id="search"
-                class="navbar-search bg-[url('/assets/search.png')] px-7 py-3 text-xs rounded-lg bg-no-repeat bg-[5px_center] shadow"
-                placeholder="Search"
-              />
-              <div class="cart relative">
-                <img
-                  src="/assets/cart.png"
-                  alt=""
-                  class="navbar-searchbar-cart-logo px-3 py-2 border-l border-[#f2f2f2] bg-white"
+            <div class="extra-items flex gap-5">
+              <!-- Search bar -->
+              <div
+                class="navbar-searchbar hidden sm:flex items-center sm:items-end"
+              >
+                <input
+                  type="text"
+                  name="Search"
+                  id="search"
+                  class="navbar-search bg-[url('/assets/search.png')] px-7 py-3 text-xs rounded-lg bg-no-repeat bg-[5px_center] shadow"
+                  placeholder="Search"
                 />
-                <p
-                  class="navbar-searchbar-notifaction-bedge itemNum absolute -top-4 bg-red-500 text-white text-center px-2 py-1 text-xs xl:text-sm xl:px-3 xl:py-1 rounded-full right-0 drop-shadow-cartNum"
-                >
-                  2
-                </p>
+                <div class="cart relative">
+                  <img
+                    src="/assets/cart.png"
+                    alt=""
+                    class="navbar-searchbar-cart-logo px-3 py-2 border-l border-zinc-100 bg-white"
+                  />
+                  <p
+                    class="navbar-searchbar-notifaction-bedge itemNum absolute -top-4 bg-red-500 text-white text-center px-2 py-1 text-xs xl:text-sm xl:px-3 xl:py-1 rounded-full right-0 drop-shadow-cartNum"
+                  >
+                    2
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <!-- Hamburger button screen <= 768px ? enable : disable -->
-            <button class="hamburger block md:hidden">
-              <img src="/assets/Menu.png" alt="menu icon" />
-            </button>
+              <!-- Hamburger button screen <= 768px ? enable : disable -->
+              <button class="hamburger block md:hidden">
+                <img src="/assets/Menu.png" alt="menu icon" />
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -116,23 +89,18 @@
     </header>
     <!-- header end -->
 
-
-
-
     <!-- main contant sections(Hero, Seervices, Feature, CTA) -->
     <main>
-
       <!-- Hero section start -->
       <section class="hero">
-        <div class="container mx-auto px-4">
+        <div class="container">
           <div
-            class="hero-contant mt-20 sm:my-32 sm:flex sm:gap-10 sm:items-center"
+            class="hero-contant mt-20 sm:my-32 sm:flex sm:gap-10 md:gap-20 xl sm:items-center"
           >
-
-          <!-- Hero section description -->
+            <!-- Hero section description -->
             <div class="hero-contant-desc xl:flex-1">
               <h6
-                class="text-sm text-small-title px-4 py-2 items-center bg-[#FDECEC] w-auto rounded-full inline xl:text-base"
+                class="text-sm text-small-title px-4 py-2 items-center bg-rose-50 w-auto rounded-full inline xl:text-base"
               >
                 More than Faster
                 <img
@@ -146,7 +114,7 @@
               >
                 Groceries delivered in as little as
                 <span
-                  class="text-small-title font-normal group-hover:font-bold transition-all duration-100"
+                  class="text-small-title font-medium group-hover:font-bold transition-all duration-100"
                   >2 hours</span
                 >
               </h1>
@@ -158,16 +126,16 @@
               </p>
 
               <div
-                class="hero-contant-desc-btn mt-4 flex flex-col sm:flex-row gap-3 items-start sm:items-center"
+                class="hero-contant-desc-btn mt-4 flex sm:flex-row gap-3 items-center"
               >
                 <button
-                  class="px-6 py-3 bg-[#FDECEC] rounded-xl text-sm text-[#F86061] font-medium xl:text-xl xl:py-6 xl:px-10 border-[1px] border-[#F86061] hover:bg-[#F86061] hover:text-white transition-all duration-300"
+                  class="px-6 py-3 bg-rose-50 rounded-xl text-sm text-red-400 font-medium xl:text-xl xl:py-6 xl:px-10 border-x border-y border-red-400 hover:bg-red-400 hover:text-white transition-all duration-300 max-sm:px-3"
                 >
                   Order Now
                 </button>
-                <button class="flex items-center group  text-sm  xl:text-xl">
+                <button class="flex items-center group text-sm xl:text-xl">
                   <div
-                    class="hero-contant-desc-btn-playicon flex items-center p-7 bg-white group-hover:shadow-play"
+                    class="hero-contant-desc-btn-playicon flex items-center p-7 rounded-full bg-white group-hover:shadow-play"
                   >
                     <img src="/assets/play.png" alt="play" class=" " />
                   </div>
@@ -180,7 +148,7 @@
             <div class="hero-contant-img xl:flex-1 xl:items-center">
               <div class="hero-contant-img-container w-fit mx-auto relative">
                 <div
-                  class="hero-contant-img-card1 text-center rounded-xl px-12 pb-0 pt-2 bg-white w-auto absolute top-[50%] left-0 hidden xl:block xl:top-[15%] xl:left-[-14%] xl:-translate-x-1/2 hover:shadow-[0px_50px_80px_#00000014] transition-all duration-300"
+                  class="hero-contant-img-card1 text-center rounded-xl px-12 pb-0 pt-2 bg-white w-auto absolute top-2/5 left-[-7%] hidden md:block -translate-y-1/2 -translate-x-1/2 hover:shadow-[0px_50px_80px_#00000014] transition-all duration-300 md:scale-50 xl:scale-100 xl:left-[-15%]"
                 >
                   <img
                     src="/assets/orange.png"
@@ -189,7 +157,7 @@
                   />
                   <div class="hero-contant-img-card1-desc mt-7">
                     <h5
-                      class="text-xs font-semibold mb-5 relative before:h-1 before:w-5 before:bg-[#FFA610] before:z-10 before:absolute before:-bottom-1 before:mx-7 before:rounded-sm"
+                      class="text-xs font-semibold mb-5 relative before:h-1 before:w-5 before:bg-amber-500 before:z-10 before:absolute before:-bottom-1 before:mx-7 before:rounded-sm"
                     >
                       Fresh Orange
                     </h5>
@@ -208,19 +176,15 @@
                 </div>
 
                 <div
-                  class="hero-contant-img-card2 hidden xl:block xl:flex xl:items-center xl:gap-4 rounded-xl p-5 bg-white absolute top-[15%] right-[0%] hover:shadow-[0px_50px_80px_#00000014] transition-all duration-300"
+                  class="hero-contant-img-card2 flex items-center gap-4 rounded-xl p-5 bg-white absolute top-[13%] right-[-5%] hover:shadow-[0px_50px_80px_#00000014] transition-all duration-300 scale-[0.30] md:scale-[0.5] lg:scale-90 xl:scale-100"
                 >
                   <img src="/assets/alarm-clock-icon.png" alt="clock" />
                   <div class="hero-contant-img-card2-container">
-                    <h5>Delivery</h5>
-                    <p>30 Min</p>
+                    <h5 class="font-bold">Delivery</h5>
+                    <p class="text-neutral-400">30 Min</p>
                   </div>
                 </div>
-                <img
-                  src="/assets/HeaderImage.png"
-                  alt="Header Image"
-                  class=""
-                />
+                <img src="/assets/HeaderImage.png" alt="Header Image" />
               </div>
             </div>
           </div>
@@ -228,34 +192,31 @@
       </section>
       <!-- Hero section end -->
 
-
       <!-- services section start -->
-      <section class="services bg-[#FEF5F5] py-14 text-center">
-        <div class="container mx-auto px-4">
+      <section class="services bg-red-50 py-14 text-center">
+        <div class="container">
           <!-- Service section description -->
           <div class="service-contant mb-12">
-            <h6 class="text-[#F54748] text-sm xl:text-lg">What we serve</h6>
+            <h6 class="text-red-500 text-sm xl:text-lg">What we serve</h6>
             <h2
-              class="text-[#2E2E2E] text-2xl font-bold leading-7 xl:text-5xl xl:leading-[54px]"
+              class="text-zinc-800 text-2xl font-bold leading-7 xl:text-5xl xl:leading-[54px]"
             >
               fruit and vegetable delivered <br />
               to your home
             </h2>
           </div>
 
-
           <!-- Services list card -->
           <div
             class="services-card-container flex items-center gap-7 justify-center mx-auto flex-col sm:flex-row"
           >
-
-          <!-- Service 1 card -->
+            <!-- Service 1 card -->
             <div
-              class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-80 h-full"
+              class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full"
             >
               <img
                 src="/assets/shipping.png"
-                class="mx-auto mb-[50px] h-16"
+                class="mx-auto mb-[50px] h-16 max-sm:h-10"
                 alt="shipping"
               />
               <h5 class="text-xl tracking-tight font-semibold">
@@ -266,9 +227,9 @@
               </p>
             </div>
 
-<!-- service 2 card -->
+            <!-- service 2 card -->
             <div
-              class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-80 h-full"
+              class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full"
             >
               <img src="/assets//cash.png" class="mx-auto mb-[50px]" alt="" />
               <h5 class="text-xl tracking-tight font-semibold">
@@ -279,14 +240,14 @@
               </p>
             </div>
 
-<!-- service 3 card -->
+            <!-- service 3 card -->
             <div
-              class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-80 h-full"
+              class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full"
             >
               <img
                 src="/assets/secureCheckout.png"
                 class="mx-auto mb-[50px]"
-                alt=""
+                alt="secure checkout"
               />
               <h5 class="text-xl tracking-tight font-semibold">
                 Secure checkout
@@ -314,21 +275,19 @@
       </section>
       <!-- services section end -->
 
-
       <!-- Feature section start -->
       <section class="features mb-4">
-        <div class="container mx-auto px-4">
-
+        <div class="container">
           <!-- feature 1 section start -->
           <div
             class="feature1 sm:flex sm:items-center sm:justify-between gap-20 xl:gap-28"
           >
-          <!-- Feature 1 image part -->
+            <!-- Feature 1 image part -->
             <div class="feature1-img relative sm:flex-1 items:center">
               <div class="feature1-img-container relative w-fit">
-                <img src="/assets/Feature1.png" alt="" />
+                <img src="/assets/Feature1.png" alt="feature 1 image" />
                 <div
-                  class="feature1-img-card hidden sm:absolute xl:top-[58%] xl:-right-[20%] xl:-translate-x-1/2 xl:-translate-y-1/2 xl:px-5 xl:py-7 sm:bg-white xl:rounded-xl xl:block hover:shadow-[0_60px_100px_#56000014]"
+                  class="feature1-img-card hidden sm:absolute md:top-[58%] md:-right-[5%] md:-translate-y-1/2 md:px-5 md:py-7 md:bg-white md:rounded-xl md:block hover:shadow-[0_60px_100px_#56000014] md:scale-50 xl:scale-100"
                 >
                   <div class="feature1-img-card-detail">
                     <h6
@@ -337,7 +296,7 @@
                       Melting Cheese
                     </h6>
                     <p
-                      class="text-xs font-medium leading-3 text-[#A5A4A4] mt-2 sm:text-center"
+                      class="text-xs font-medium leading-3 text-neutral-400 mt-2 sm:text-center"
                     >
                       Red Stovery
                     </p>
@@ -360,7 +319,7 @@
                         $49.66
                       </p>
                       <button
-                        class="p-[11px] text-white font-extralight bg-[#F54748] rounded-lg"
+                        class="p-[11px] text-white font-extralight bg-red-500 rounded-lg"
                       >
                         <img src="/assets/add.svg" alt="Plus" />
                       </button>
@@ -372,11 +331,11 @@
 
             <!-- feature 2 description -->
             <div class="feature1-contant w-full sm:flex-1 mt-10">
-              <h6 class="text-[#03A66B] text-sm sm:text-xs xl:text-lg">
+              <h6 class="text-emerald-600 text-sm sm:text-xs xl:text-lg">
                 WHY CHOOSE US
               </h6>
               <h2
-                class="text-[#2E2E2E] text-2xl font-bold leading-7 sm:text-xl xl:text-5xl xl:leading-[54px]"
+                class="text-zinc-800 text-2xl font-bold leading-7 sm:text-xl xl:text-5xl xl:leading-[54px]"
               >
                 Find Favorites and Discover New Ones
               </h2>
@@ -387,7 +346,7 @@
                 blanditiis praesen voluptatum deleniti.
               </p>
               <button
-                class="text-base sm:text-sm leading-4 font-medium text-[#F54748] py-4 px-8 rounded-xl border-[#F54748] border-[1px] mt-7 xl:text-xl xl:py-6 xl:px-10 hover:text-white hover:bg-[#F54748] transition-all duration-300"
+                class="text-base sm:text-sm leading-4 font-medium text-red-500 py-4 px-8 rounded-xl border-red-500 border-[1px] mt-7 xl:text-xl xl:py-6 xl:px-10 hover:text-white hover:bg-red-500 transition-all duration-300"
               >
                 Explore Now
               </button>
@@ -399,20 +358,24 @@
           <div
             class="feature2 mt-20 sm:flex sm:flex-row-reverse sm:justify-between sm:items-center gap-20 xl:gap-28 xl:"
           >
-
-          <!-- Feature 2 image part -->
+            <!-- Feature 2 image part -->
             <div class="feature2-img mt-10 flex-1 xl:mt-0 items-center">
               <div class="feature2-img-container relative w-fit">
                 <img src="/assets/Feature2.png" alt="" class="mx-auto" />
 
-                <div class="feature2-img-card bg-white rounded-xl hidden xl:block xl:absolute xl:top-[45%] 
-                xl:-translate-y-1/2 xl:-translate-x-1/2 xl:-right-[39%] text-center w-fit p-4  hover:shadow-[0_60px_100px_#56000014]">
-                  <img src="/assets/bike.png" alt="bike" class="bg-[#FEF5F5] rounded-xl mb-6" />
+                <div
+                  class="feature2-img-card bg-white rounded-xl hidden sm:block absolute sm:top-[45%] sm:-translate-y-1/2 sm:-translate-x-1/2 sm:-right-[39%] text-center w-fit p-4 hover:shadow-[0_60px_100px_#56000014] scale-[0.5] md:scale-50 lg:scale-75 xl:scale-100 max-sm:-right-[70%]"
+                >
+                  <img
+                    src="/assets/bike.png"
+                    alt="bike"
+                    class="bg-[#FEF5F5] rounded-xl mb-6"
+                  />
                   <h6 class="text-base leading-4 tracking-tight font-bold pb-2">
                     Bike Delivery
                   </h6>
                   <p
-                    class="text-[10px] font-normal leading-4 text-[#A5A4A4] mt-2 max-w-32 w-full"
+                    class="text-[10px] font-normal leading-4 text-neutral-400 mt-2 max-w-32 w-full"
                   >
                     Bicycle service ensures that your packages arrive quickly
                   </p>
@@ -437,7 +400,7 @@
                 blanditiis praesentium voluptatum deleniti atque corrupti quos
               </p>
               <button
-                class="text-base sm:text-sm text-[#F86061] border-[1px] leading-4 font-medium bg-white py-4 px-8 rounded-xl border-[#F86061] mt-7 xl:text-xl xl:py-6 xl:px-10 hover:text-white hover:bg-[#F54748] transition-all duration-300"
+                class="text-base sm:text-sm text-red-400 border-[1px] leading-4 font-medium bg-white py-4 px-8 rounded-xl border-red-400 mt-7 xl:text-xl xl:py-6 xl:px-10 hover:text-white hover:bg-red-500 transition-all duration-300"
               >
                 Explore Now
               </button>
@@ -448,15 +411,14 @@
       </section>
       <!-- Feature section end -->
 
-
       <!-- CTA section start -->
       <section class="cta bg-[#FEF5F5] py-9 xl:py-14">
         <div
-          class="container mx-auto px-4 sm:flex sm:items-center sm:flex-row-reverse sm:gap-20 sm:justify-between"
+          class="container sm:flex sm:items-center sm:flex-row-reverse sm:gap-20 sm:justify-between"
         >
-        <!-- CTA section Description -->
+          <!-- CTA section Description -->
           <div class="cta-contant flex-1">
-            <h6 class="text-[#F54748] text-sm xl:text-lg">Download our app</h6>
+            <h6 class="text-red-500 text-sm xl:text-lg">Download our app</h6>
             <h2
               class="text-text-dark text-2xl font-bold leading-7 xl:text-5xl xl:leading-[54px]"
             >
@@ -466,9 +428,9 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut.
             </p>
-            <div class="cta-contant-btns mt-7 xl:space-x-4">
+            <div class="cta-contant-btns space-x-5 space-y-5 mt-7 xl:space-x-4">
               <button
-                class="app-store px-3 py-2 text-base border-[#EEDCDC] border-[1px] rounded-xl xl:text-lg cursor-pointer hover:bg-white transition-all duration-300"
+                class="app-store px-3 py-2 text-base border-stone-200 border-x border-y rounded-xl xl:text-lg cursor-pointer hover:bg-white transition-all duration-300"
               >
                 <img
                   src="/assets/apple.png"
@@ -478,7 +440,7 @@
                 App Store
               </button>
               <button
-                class="play-store px-4 py-2 text-base border-[#EEDCDC] border-[1px] rounded-xl xl:text-lg cursor-pointer hover:bg-white transition-all duration-300""
+                class="play-store px-4 py-2 text-base border-stone-200 border-x border-y rounded-xl xl:text-lg cursor-pointer hover:bg-white transition-all duration-300"
               >
                 <img
                   src="/assets/playStore.png"
@@ -501,22 +463,17 @@
         </div>
       </section>
       <!-- CTA section end -->
-
     </main>
-<!-- main contant end -->
-
-
-
+    <!-- main contant end -->
 
     <!-- footer start -->
     <footer>
-      <div class="container mx-auto px-4">
-
+      <div class="container">
         <!-- Footer top which contain company logo, small description, addresss & various links -->
         <div
-          class="footer-top py-9 sm:flex sm:items-center sm:gap-5 sm:justify-between"
+          class="footer-top py-9 sm:flex sm:items-start sm:gap-5 sm:justify-between"
         >
-        <!-- Company logo & description -->
+          <!-- Company logo & description -->
           <div class="footer-company-detail flex-1">
             <img src="/assets//logo.png" alt="logo" />
             <p
@@ -531,7 +488,7 @@
           <div
             class="footer-links mt-14 sm:mt-0 flex flex-wrap gap-4 justify-between flex-1"
           >
-          <!-- Company links -->
+            <!-- Company links -->
             <div class="footer-links-company">
               <h5
                 class="company-head text-lg sm:text-base font-semibold xl:text-lg"
@@ -594,7 +551,7 @@
 
         <!-- Footer bottom which contain copyrights, T&C & Privacy&Policy -->
         <div
-          class="footer-bottom border-t-[1px] border-[#ECECEC] py-5 flex justify-between items-center text-sm text-text-light xl:text-base"
+          class="footer-bottom border-t-[1px] border-gray-200 py-5 flex justify-between items-center text-sm text-text-light xl:text-base"
         >
           <p>All Rights Reserved @ BESNIK 2021</p>
           <div class="footer-bottom-links space-x-6">
@@ -605,28 +562,5 @@
       </div>
     </footer>
     <!-- footer end -->
-
-    <!-- <script>
-      var slideIndex = 1;
-      showDivs(slideIndex);
-      function plusDivs(n) {
-        showDivs((slideIndex += n));
-      }
-
-      function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("services-card");
-        if (n > x.length) {
-          slideIndex = 1;
-        }
-        if (n < 1) {
-          slideIndex = x.length;
-        }
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-        }
-        x[slideIndex - 1].style.display = "block";
-      }
-    </script> -->
   </body>
 </html>
