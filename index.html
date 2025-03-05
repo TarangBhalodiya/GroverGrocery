@@ -16,21 +16,40 @@
     <style type="text/tailwindcss">
       @theme {
         --font-poppins: "Poppins", "sans-serif";
-        --shadow: 0 20px 20px #0000000a;
-        --drop-shadow-cartNum: -6px 9px 24px -6px #ee4343ad;
-        --shadow-play: 0 20px 49px #0000001a;
-        --drop-shadow-feature: ;
+        --shadow-search: 0 20px 50px rgba(0, 0, 0, 0.04);
+        --shadow-cartNum: -6px 9px 24px -6px rgba(238, 67, 67, 0.68);
+        --shadow-play: 0 20px 49px -10px rgba(0, 0, 0, 0.1);
+        --shadow-hero-card: 0 50px 80px rgba(0, 0, 0, 0.08);
+        --shadow-feature-card: 0 60px 100px -10px rgba(86, 0, 0, 0.08);
         --drop-shadow-orange: 0 40px 50px #e87b004d;
         --color-small-title: #f54748;
         --color-text-dark: #2e2e2e;
         --color-text-light: #676767;
         --spacing-inherit: inherit;
+        --bg-serach-icon: 16px;
+        --left-hero-card1-md: -7%;
+        --leading-head-line-height: 54px;
+        --text-2xs: 10px;
       }
       .navbar-menu-link {
         @apply hover:text-red-500 transition duration-300 md:text-sm font-medium xl:text-base;
       }
-    </style>
 
+      .section-heading {
+        @apply text-zinc-800 text-2xl font-bold leading-7 sm:text-xl xl:text-5xl xl:leading-head-line-height mt-2;
+      }
+      .section-tagline {
+        @apply text-sm xl:text-lg;
+      }
+      .footer-link {
+        @apply hover:text-text-dark leading-10;
+      }
+    </style>
+    <style>
+      .navbar-search {
+        background-image: url(/assets/icon.svg);
+      }
+    </style>
     <title>Grover</title>
   </head>
   <body class="font-poppins text-text-dark">
@@ -38,7 +57,7 @@
     <header>
       <!-- navbar start -->
       <nav class="absolute top-6 w-full">
-        <div class="container">
+        <div class="custom-container">
           <div class="navbar flex items-center justify-between">
             <!-- navbar logo -->
             <img src="/assets/logo.png" alt="logo" class="navbar-logo h-7" />
@@ -54,23 +73,25 @@
             <div class="extra-items flex gap-5">
               <!-- Search bar -->
               <div
-                class="navbar-searchbar hidden sm:flex items-center sm:items-end"
+                class="navbar-searchbar hidden shadow-search sm:flex items-center sm:items-end rounded-lg bg-white"
               >
                 <input
                   type="text"
                   name="Search"
                   id="search"
-                  class="navbar-search bg-[url('/assets/search.png')] px-7 py-3 text-xs rounded-lg bg-no-repeat bg-[5px_center] shadow"
+                  class="navbar-search pl-10 py-3 text-xs rounded-bl-lg rounded-tl-lg bg-no-repeat bg-serach-icon bg-[20px_center]"
                   placeholder="Search"
                 />
-                <div class="cart relative">
+                <div
+                  class="cart relative rounded-tr-lg rounded-br-lg before:h-4 before:w-px before:bg-zinc-100 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2"
+                >
                   <img
-                    src="/assets/cart.png"
-                    alt=""
-                    class="navbar-searchbar-cart-logo px-3 py-2 border-l border-zinc-100 bg-white"
+                    src="/assets/cart.svg"
+                    alt="cart"
+                    class="navbar-searchbar-cart-logo px-3 py-2"
                   />
                   <p
-                    class="navbar-searchbar-notifaction-bedge itemNum absolute -top-4 bg-red-500 text-white text-center px-2 py-1 text-xs xl:text-sm xl:px-3 xl:py-1 rounded-full right-0 drop-shadow-cartNum"
+                    class="navbar-searchbar-notifaction-bedge item-num absolute -top-3 -right-3 bg-red-500 text-white text-center px-2 py-1 text-xs xl:text-sm xl:size-7 xl:px-2 xl:py-1 rounded-full shadow-cartNum"
                   >
                     2
                   </p>
@@ -93,13 +114,13 @@
     <main>
       <!-- Hero section start -->
       <section class="hero">
-        <div class="container">
+        <div class="custom-container">
           <div
             class="hero-contant mt-20 sm:my-32 sm:flex sm:gap-10 md:gap-20 xl sm:items-center"
           >
             <!-- Hero section description -->
-            <div class="hero-contant-desc xl:flex-1">
-              <h6
+            <div class="hero-contant-desc xl:flex-1 xl:gap-44">
+              <span
                 class="text-sm text-small-title px-4 py-2 items-center bg-rose-50 w-auto rounded-full inline xl:text-base"
               >
                 More than Faster
@@ -108,7 +129,7 @@
                   alt="straeberry"
                   class="h-6 inline"
                 />
-              </h6>
+              </span>
               <h1
                 class="text-3xl font-bold mt-5 leading-10 xl:text-7xl xl:leading-17 group"
               >
@@ -135,7 +156,7 @@
                 </button>
                 <button class="flex items-center group text-sm xl:text-xl">
                   <div
-                    class="hero-contant-desc-btn-playicon flex items-center p-7 rounded-full bg-white group-hover:shadow-play"
+                    class="hero-contant-desc-btn-playicon flex items-center p-4 md:p-7 rounded-full bg-white shadow-play"
                   >
                     <img src="/assets/play.png" alt="play" class=" " />
                   </div>
@@ -144,11 +165,13 @@
               </div>
             </div>
 
-            <!-- Hero sectio image -->
+            <!-- Hero section image -->
             <div class="hero-contant-img xl:flex-1 xl:items-center">
-              <div class="hero-contant-img-container w-fit mx-auto relative">
+              <div
+                class="hero-contant-img-container w-fit mx-auto justify-items-end relative"
+              >
                 <div
-                  class="hero-contant-img-card1 text-center rounded-xl px-12 pb-0 pt-2 bg-white w-auto absolute top-2/5 left-[-7%] hidden md:block -translate-y-1/2 -translate-x-1/2 hover:shadow-[0px_50px_80px_#00000014] transition-all duration-300 md:scale-50 xl:scale-100 xl:left-[-15%]"
+                  class="hero-contant-img-card1 text-center rounded-xl px-12 pb-0 pt-2 bg-white w-auto absolute left-hero-card1-md hidden md:block md:scale-50 xl:scale-100 -left-11/20 -top-1/20 lg:-left-7/20 lg:top-3/20 shadow-hero-card"
                 >
                   <img
                     src="/assets/orange.png"
@@ -156,12 +179,12 @@
                     class="hero-contant-img-card1-product drop-shadow-orange"
                   />
                   <div class="hero-contant-img-card1-desc mt-7">
-                    <h5
-                      class="text-xs font-semibold mb-5 relative before:h-1 before:w-5 before:bg-amber-500 before:z-10 before:absolute before:-bottom-1 before:mx-7 before:rounded-sm"
+                    <span
+                      class="text-xs block font-semibold mb-5 relative before:h-1 before:w-5 before:bg-amber-500 before:z-10 before:absolute before:-bottom-1 before:mx-7 before:rounded-sm"
                     >
                       Fresh Orange
-                    </h5>
-                    <h6 class="text-xl leading-5 font-bold">$44.60</h6>
+                    </span>
+                    <span class="text-xl leading-5 font-bold">$44.60</span>
                     <p
                       class="text-xs leading-3 font-medium mt-1 text-text-light mb-13"
                     >
@@ -169,18 +192,18 @@
                     </p>
                     <img
                       src="/assets/buy.jpg"
-                      alt=""
+                      alt="buy icon"
                       class="buy mx-auto -mb-6"
                     />
                   </div>
                 </div>
 
                 <div
-                  class="hero-contant-img-card2 flex items-center gap-4 rounded-xl p-5 bg-white absolute top-[13%] right-[-5%] hover:shadow-[0px_50px_80px_#00000014] transition-all duration-300 scale-[0.30] md:scale-[0.5] lg:scale-90 xl:scale-100"
+                  class="hero-contant-img-card2 flex items-center gap-4 rounded-xl p-5 bg-white absolute top-3/20 -right-1/20 md:top-1/10 md:-right-1/5 lg:top-3/25 lg:-right-1/10 shadow-hero-card scale-75 lg:scale-75 md:scale-50 xl:scale-100 sm:scale-50"
                 >
                   <img src="/assets/alarm-clock-icon.png" alt="clock" />
                   <div class="hero-contant-img-card2-container">
-                    <h5 class="font-bold">Delivery</h5>
+                    <span class="font-bold">Delivery</span>
                     <p class="text-neutral-400">30 Min</p>
                   </div>
                 </div>
@@ -194,13 +217,11 @@
 
       <!-- services section start -->
       <section class="services bg-red-50 py-14 text-center">
-        <div class="container">
+        <div class="custom-container">
           <!-- Service section description -->
           <div class="service-contant mb-12">
-            <h6 class="text-red-500 text-sm xl:text-lg">What we serve</h6>
-            <h2
-              class="text-zinc-800 text-2xl font-bold leading-7 xl:text-5xl xl:leading-[54px]"
-            >
+            <span class="section-tagline text-red-500">What we serve</span>
+            <h2 class="section-heading">
               fruit and vegetable delivered <br />
               to your home
             </h2>
@@ -208,76 +229,80 @@
 
           <!-- Services list card -->
           <div
-            class="services-card-container flex items-center gap-7 justify-center mx-auto flex-col sm:flex-row"
+            class="services-card-container flex items-center xl:gap-16 gap-7 sm:flex-wrap lg:flex-nowrap justify-center mx-auto flex-col sm:flex-row"
           >
             <!-- Service 1 card -->
-            <div
-              class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full"
-            >
-              <img
-                src="/assets/shipping.png"
-                class="mx-auto mb-[50px] h-16 max-sm:h-10"
-                alt="shipping"
-              />
-              <h5 class="text-xl tracking-tight font-semibold">
-                Free shipping
-              </h5>
-              <p class="text-sm text-text-light leading-6 mt-3">
-                Enjoy Order in a hand using the fresness of groceries
-              </p>
+            <div class="relative group h-fit">
+              <div
+                class="card-hover absolute top-0 left-0 h-full rounded-xl max-w-80 w-full bg-red-500 group-hover:-rotate-2 origin-top-left group-hover:scale-105 transition-all duration-300"
+              ></div>
+              <div
+                class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full relative"
+              >
+                <img
+                  src="/assets/shipping.png"
+                  class="mx-auto mb-12 h-16 max-sm:h-10"
+                  alt="shipping"
+                />
+                <span class="text-xl tracking-tight font-semibold">
+                  Free shipping
+                </span>
+                <p class="text-sm text-text-light leading-6 mt-3">
+                  Enjoy Order in a hand using the fresness of groceries
+                </p>
+              </div>
             </div>
 
             <!-- service 2 card -->
-            <div
-              class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full"
-            >
-              <img src="/assets//cash.png" class="mx-auto mb-[50px]" alt="" />
-              <h5 class="text-xl tracking-tight font-semibold">
-                15 days return
-              </h5>
-              <p class="text-sm leading-6 mt-3">
-                Order in a handy way using the freshness of the groceries.
-              </p>
+            <div class="relative group h-fit">
+              <div
+                class="card-hover absolute top-0 left-0 h-full rounded-xl max-w-80 w-full bg-red-500 group-hover:-rotate-2 origin-top-left group-hover:scale-105 transition-all duration-300"
+              ></div>
+              <div
+                class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full relative"
+              >
+                <img
+                  src="/assets//cash.png"
+                  class="mx-auto mb-12 h-16 max-sm:h-10"
+                  alt="cash icon"
+                />
+                <span class="text-xl tracking-tight font-semibold">
+                  15 days return
+                </span>
+                <p class="text-sm leading-6 mt-3">
+                  Order in a handy way using the freshness of the groceries.
+                </p>
+              </div>
             </div>
-
             <!-- service 3 card -->
-            <div
-              class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full"
-            >
-              <img
-                src="/assets/secureCheckout.png"
-                class="mx-auto mb-[50px]"
-                alt="secure checkout"
-              />
-              <h5 class="text-xl tracking-tight font-semibold">
-                Secure checkout
-              </h5>
-              <p class="text-sm leading-6 mt-3">
-                If you get rotten items - return immediately to us.
-              </p>
+            <div class="relative group h-fit">
+              <div
+                class="card-hover absolute top-0 left-0 h-full rounded-xl max-w-80 w-full bg-red-500 group-hover:-rotate-2 origin-top-left group-hover:scale-105 transition-all duration-300"
+              ></div>
+              <div
+                class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full relative"
+              >
+                <img
+                  src="/assets/secureCheckout.png"
+                  class="mx-auto mb-12 h-16 max-sm:h-10"
+                  alt="secure checkout"
+                />
+                <span class="text-xl tracking-tight font-semibold">
+                  Secure checkout
+                </span>
+                <p class="text-sm leading-6 mt-3">
+                  If you get rotten items - return immediately to us.
+                </p>
+              </div>
             </div>
-
-            <!-- <button
-              class="p-3 transition-all duration-300 hover:text-[#F54748] sm:hidden"
-              onclick="plusDivs(-1)"
-            >
-              &#10094;
-            </button>
-
-            <button
-              class="p-3 transition-all duration-300 hover:text-[#F54748] sm:hidden"
-              onclick="plusDivs(1)"
-            >
-              &#10095;
-            </button> -->
           </div>
         </div>
       </section>
       <!-- services section end -->
 
       <!-- Feature section start -->
-      <section class="features mb-4">
-        <div class="container">
+      <section class="features mb-4 lg:py-28 md:py-16 py-12">
+        <div class="custom-container">
           <!-- feature 1 section start -->
           <div
             class="feature1 sm:flex sm:items-center sm:justify-between gap-20 xl:gap-28"
@@ -287,14 +312,14 @@
               <div class="feature1-img-container relative w-fit">
                 <img src="/assets/Feature1.png" alt="feature 1 image" />
                 <div
-                  class="feature1-img-card hidden sm:absolute md:top-[58%] md:-right-[5%] md:-translate-y-1/2 md:px-5 md:py-7 md:bg-white md:rounded-xl md:block hover:shadow-[0_60px_100px_#56000014] md:scale-50 xl:scale-100"
+                  class="feature1-card hidden sm:absolute md:top-11/20 md:-right-1/5 lg:-right-1/10 md:-translate-y-1/2 py-8 px-4 md:bg-white md:rounded-xl md:block shadow-feature-card md:scale-50 xl:scale-100"
                 >
                   <div class="feature1-img-card-detail">
-                    <h6
-                      class="text-lg sm:text-base leading-4 tracking-tight font-bold sm:text-center"
+                    <span
+                      class="text-lg sm:text-base leading-4 tracking-tight font-bold sm:text-center block w-full"
                     >
                       Melting Cheese
-                    </h6>
+                    </span>
                     <p
                       class="text-xs font-medium leading-3 text-neutral-400 mt-2 sm:text-center"
                     >
@@ -303,16 +328,16 @@
                     <img
                       class="mx-auto my-[30px] h-[53px]"
                       src="/assets/stovery.png"
-                      alt=""
+                      alt="stovery"
                     />
                   </div>
 
                   <div class="feature1-img-card-price">
                     <div class="rating flex items-center gap-1">
-                      <img src="/assets/star.png" alt="" />
+                      <img src="/assets/star.png" alt="rating start" />
                       <p>3.8</p>
                     </div>
-                    <div class="price flex justify-between items-center">
+                    <div class="price flex justify-between items-center gap-14">
                       <p
                         class="text-2xl sm:text-xl font-bold leading-5 tracking-tighter"
                       >
@@ -331,12 +356,10 @@
 
             <!-- feature 2 description -->
             <div class="feature1-contant w-full sm:flex-1 mt-10">
-              <h6 class="text-emerald-600 text-sm sm:text-xs xl:text-lg">
+              <span class="section-tagline text-emerald-600">
                 WHY CHOOSE US
-              </h6>
-              <h2
-                class="text-zinc-800 text-2xl font-bold leading-7 sm:text-xl xl:text-5xl xl:leading-[54px]"
-              >
+              </span>
+              <h2 class="section-heading">
                 Find Favorites and Discover New Ones
               </h2>
               <p
@@ -346,7 +369,7 @@
                 blanditiis praesen voluptatum deleniti.
               </p>
               <button
-                class="text-base sm:text-sm leading-4 font-medium text-red-500 py-4 px-8 rounded-xl border-red-500 border-[1px] mt-7 xl:text-xl xl:py-6 xl:px-10 hover:text-white hover:bg-red-500 transition-all duration-300"
+                class="text-base sm:text-sm leading-4 font-medium text-red-500 py-4 px-8 rounded-xl border-red-500 border mt-7 xl:text-xl xl:py-6 xl:px-10 hover:text-white hover:bg-red-500 transition-all duration-300"
               >
                 Explore Now
               </button>
@@ -356,26 +379,32 @@
 
           <!-- Feature 2 section start -->
           <div
-            class="feature2 mt-20 sm:flex sm:flex-row-reverse sm:justify-between sm:items-center gap-20 xl:gap-28 xl:"
+            class="feature2 mt-20 sm:flex sm:flex-row-reverse sm:justify-between sm:items-center gap-20 sm:gap-14 xl:gap-28 xl:"
           >
             <!-- Feature 2 image part -->
             <div class="feature2-img mt-10 flex-1 xl:mt-0 items-center">
               <div class="feature2-img-container relative w-fit">
-                <img src="/assets/Feature2.png" alt="" class="mx-auto" />
+                <img
+                  src="/assets/Feature2.png"
+                  alt="feature 2 image"
+                  class="mx-auto"
+                />
 
                 <div
-                  class="feature2-img-card bg-white rounded-xl hidden sm:block absolute sm:top-[45%] sm:-translate-y-1/2 sm:-translate-x-1/2 sm:-right-[39%] text-center w-fit p-4 hover:shadow-[0_60px_100px_#56000014] scale-[0.5] md:scale-50 lg:scale-75 xl:scale-100 max-sm:-right-[70%]"
+                  class="feature2-img-card bg-white rounded-xl hidden sm:block absolute sm:top-1/2 sm:-right-9/20 -translate-y-1/2 -translate-x-1/2 lg:top-53/100 lg:-right-7/20 md:top-11/20 md:-right-9/20 text-center w-fit p-4 shadow-feature-card scale-50 md:scale-50 lg:scale-75 xl:scale-100 top-1/2"
                 >
                   <img
                     src="/assets/bike.png"
                     alt="bike"
-                    class="bg-[#FEF5F5] rounded-xl mb-6"
+                    class="bg-red-50 rounded-xl mb-6"
                   />
-                  <h6 class="text-base leading-4 tracking-tight font-bold pb-2">
+                  <span
+                    class="text-base leading-4 tracking-tight font-bold pb-2"
+                  >
                     Bike Delivery
-                  </h6>
+                  </span>
                   <p
-                    class="text-[10px] font-normal leading-4 text-neutral-400 mt-2 max-w-32 w-full"
+                    class="text-2xs font-normal leading-4 text-neutral-400 mt-2 max-w-32 w-full"
                   >
                     Bicycle service ensures that your packages arrive quickly
                   </p>
@@ -385,12 +414,10 @@
 
             <!-- Feature 2 description -->
             <div class="feature2-contant mt-10 flex-1">
-              <h6 class="text-[#F9BA45] text-sm sm:text-xs xl:text-lg">
+              <span class="section-tagline text-amber-300">
                 HOME DELIVERY
-              </h6>
-              <h2
-                class="text-text-dark text-2xl font-bold leading-7 sm:text-xl xl:text-5xl xl:leading-[54px]"
-              >
+              </span>
+              <h2 class="section-heading">
                 Sit at Home We Will Take Care Your Order
               </h2>
               <p
@@ -400,7 +427,7 @@
                 blanditiis praesentium voluptatum deleniti atque corrupti quos
               </p>
               <button
-                class="text-base sm:text-sm text-red-400 border-[1px] leading-4 font-medium bg-white py-4 px-8 rounded-xl border-red-400 mt-7 xl:text-xl xl:py-6 xl:px-10 hover:text-white hover:bg-red-500 transition-all duration-300"
+                class="text-base sm:text-sm text-red-400 border leading-4 font-medium bg-white py-4 px-8 rounded-xl border-red-400 mt-7 xl:text-xl xl:py-6 xl:px-10 hover:text-white hover:bg-red-500 transition-all duration-300"
               >
                 Explore Now
               </button>
@@ -412,16 +439,14 @@
       <!-- Feature section end -->
 
       <!-- CTA section start -->
-      <section class="cta bg-[#FEF5F5] py-9 xl:py-14">
+      <section class="cta bg-red-50 py-9 xl:py-14">
         <div
-          class="container sm:flex sm:items-center sm:flex-row-reverse sm:gap-20 sm:justify-between"
+          class="custom-container sm:flex sm:items-center sm:flex-row-reverse sm:gap-20 sm:justify-between"
         >
           <!-- CTA section Description -->
           <div class="cta-contant flex-1">
-            <h6 class="text-red-500 text-sm xl:text-lg">Download our app</h6>
-            <h2
-              class="text-text-dark text-2xl font-bold leading-7 xl:text-5xl xl:leading-[54px]"
-            >
+            <span class="section-tagline text-red-500">Download our app</span>
+            <h2 class="section-heading">
               Get the Groceries app order more easily.
             </h2>
             <p class="text-text-light text-sm mt-3 xl:text-lg xl:mt-6 xl:mb-12">
@@ -468,16 +493,16 @@
 
     <!-- footer start -->
     <footer>
-      <div class="container">
+      <div class="custom-container">
         <!-- Footer top which contain company logo, small description, addresss & various links -->
         <div
-          class="footer-top py-9 sm:flex sm:items-start sm:gap-5 sm:justify-between"
+          class="footer-top py-9 sm:flex sm:items-start sm:justify-between md:gap-16 xl:gap-48 gap-12"
         >
           <!-- Company logo & description -->
-          <div class="footer-company-detail flex-1">
+          <div class="footer-company-detail flex-1 max-w-2xs w-full">
             <img src="/assets//logo.png" alt="logo" />
             <p
-              class="footer-company-detail-desc text-text-light text-sm mt-4 xl:text-base max-w-[40%] w-full"
+              class="footer-company-detail-desc text-text-light text-sm mt-4 xl:text-base"
             >
               Fast delivery, which is active all over the world, serves with
               many transportation vehicles.
@@ -486,61 +511,47 @@
 
           <!--various Links -->
           <div
-            class="footer-links mt-14 sm:mt-0 flex flex-wrap gap-4 justify-between flex-1"
+            class="footer-links mt-14 sm:mt-0 flex flex-wrap xl:gap-10 max-sm:gap-y-7 justify-between flex-1 gap-y-8 max-sm:justify-around max-sm:gap-7"
           >
             <!-- Company links -->
             <div class="footer-links-company">
-              <h5
+              <span
                 class="company-head text-lg sm:text-base font-semibold xl:text-lg"
               >
                 Company
-              </h5>
+              </span>
               <div
                 class="company-link-container flex flex-col gap-2 mt-3 text-text-light text-sm xl:text-base"
               >
-                <a href="" class="company-link hover:text-text-dark"
-                  >About Us</a
-                >
-                <a href="" class="company-link hover:text-text-dark">Blog</a>
-                <a href="" class="company-link hover:text-text-dark">
-                  All Products</a
-                >
-                <a href="" class="company-link hover:text-text-dark"
-                  >Locations Map</a
-                >
+                <a href="#" class="footer-link">About Us</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#" class="footer-link"> All Products</a>
+                <a href="#" class="footer-link">Locations Map</a>
               </div>
             </div>
 
             <!-- Services links -->
             <div class="footer-links-services">
-              <h5 class="services-head text-base font-semibold xl:text-lg">
+              <span class="services-head text-lg font-semibold xl:text-lg">
                 Services
-              </h5>
+              </span>
               <div
                 class="services-link-container flex flex-col gap-2 mt-3 text-text-light text-sm xl:text-base"
               >
-                <a href="" class="services-link hover:text-text-dark"
-                  >Order tracking</a
-                >
-                <a href="" class="services-link hover:text-text-dark"
-                  >Wish List</a
-                >
-                <a href="" class="services-link hover:text-text-dark"
-                  >My account</a
-                >
-                <a href="" class="services-link hover:text-text-dark"
-                  >Terms & Conditions</a
-                >
+                <a href="#" class="footer-link">Order tracking</a>
+                <a href="#" class="footer-link">Wish List</a>
+                <a href="#" class="footer-link">My account</a>
+                <a href="#" class="footer-link">Terms & Conditions</a>
               </div>
             </div>
 
             <!-- Get In Touch -->
             <div class="footer-links-getInTouch">
-              <h5 class="getInTouch-head text-base font-semibold xl:text-lg">
+              <span class="getInTouch-head text-base font-semibold xl:text-lg">
                 Get In Touch
-              </h5>
+              </span>
               <p
-                class="getInTouch-link mt-3 text-text-light text-sm max-w-52 w-full xl:text-base hover:text-text-dark"
+                class="getInTouch-link mt-3 text-text-light text-sm max-w-52 w-full xl:text-base hover:text-text-dark leading-7"
               >
                 Subscribe to our weekly Newsletter and receive updates via
                 email.
@@ -551,7 +562,7 @@
 
         <!-- Footer bottom which contain copyrights, T&C & Privacy&Policy -->
         <div
-          class="footer-bottom border-t-[1px] border-gray-200 py-5 flex justify-between items-center text-sm text-text-light xl:text-base"
+          class="footer-bottom border-t border-gray-200 py-5 flex justify-between max-sm:flex-col max-sm:gap-y-3 items-center text-sm text-text-light xl:text-base"
         >
           <p>All Rights Reserved @ BESNIK 2021</p>
           <div class="footer-bottom-links space-x-6">

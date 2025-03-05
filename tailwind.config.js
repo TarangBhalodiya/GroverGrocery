@@ -1,14 +1,11 @@
-
 module.exports = {
     theme: {
-        container: {
-            padding: {
-                DEFAULT: '1rem',
-                sm: '2rem',
-                lg: '4rem',
-                xl: '5rem',
-                '2xl': '6rem',
-            },
-        },
+        extend: {
+            backgroundImage: {
+                'custom-image': "url('/path/to/your-image.jpg')",
+                'another-image': "url('/path/to/another-image.jpg')"
+            }
+        }
     },
-};
+    plugins: [],
+}
