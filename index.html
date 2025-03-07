@@ -17,10 +17,11 @@
       @theme {
         --font-poppins: "Poppins", "sans-serif";
         --shadow-search: 0 20px 50px rgba(0, 0, 0, 0.04);
-        --shadow-cartNum: -6px 9px 24px -6px rgba(238, 67, 67, 0.68);
+        --shadow-cart-num: -6px 9px 24px -6px rgba(238, 67, 67, 0.68);
         --shadow-play: 0 20px 49px -10px rgba(0, 0, 0, 0.1);
         --shadow-hero-card: 0 50px 80px rgba(0, 0, 0, 0.08);
         --shadow-feature-card: 0 60px 100px -10px rgba(86, 0, 0, 0.08);
+        --shadow-hero-card-buy: 0px -6px 40px rgba(235, 69, 70, 0.2);
         --drop-shadow-orange: 0 40px 50px #e87b004d;
         --color-small-title: #f54748;
         --color-text-dark: #2e2e2e;
@@ -30,6 +31,10 @@
         --left-hero-card1-md: -7%;
         --leading-head-line-height: 54px;
         --text-2xs: 10px;
+      }
+
+      :root {
+        --header-img-height: 417px;
       }
       .navbar-menu-link {
         @apply hover:text-red-500 transition duration-300 md:text-sm font-medium xl:text-base;
@@ -44,10 +49,12 @@
       .footer-link {
         @apply hover:text-text-dark leading-10;
       }
-    </style>
-    <style>
       .navbar-search {
-        background-image: url(/assets/icon.svg);
+        background-image: url(/assets/vector/icon.svg);
+        background-position: 20px center;
+      }
+      .header-img {
+        max-width: 417px;
       }
     </style>
     <title>Grover</title>
@@ -58,49 +65,51 @@
       <!-- navbar start -->
       <nav class="absolute top-6 w-full">
         <div class="custom-container">
-          <div class="navbar flex items-center justify-between">
+          <div class="flex items-center justify-between">
             <!-- navbar logo -->
-            <img src="/assets/logo.png" alt="logo" class="navbar-logo h-7" />
+            <img src="/assets/images/logo.png" alt="logo" class="h-7" />
 
-            <!-- Navbar links for navigate to different pages -->
-            <div class="navbar-menu-links md:flex items-center gap-5 hidden">
+            <!-- navbar links for navigate to different pages -->
+            <div class="md:flex items-center gap-5 hidden">
               <a href="#" class="navbar-menu-link">Home</a>
               <a href="#" class="navbar-menu-link">Menu</a>
               <a href="#" class="navbar-menu-link">Service</a>
               <a href="#" class="navbar-menu-link">Shop</a>
             </div>
 
-            <div class="extra-items flex gap-5">
-              <!-- Search bar -->
+            <div class="flex gap-5">
+              <!-- search bar -->
               <div
-                class="navbar-searchbar hidden shadow-search sm:flex items-center sm:items-end rounded-lg bg-white"
+                class="hidden shadow-search sm:flex items-center sm:items-end rounded-lg bg-white"
               >
                 <input
                   type="text"
                   name="Search"
                   id="search"
-                  class="navbar-search pl-10 py-3 text-xs rounded-bl-lg rounded-tl-lg bg-no-repeat bg-serach-icon bg-[20px_center]"
+                  class="navbar-search pl-10 py-3 text-xs rounded-bl-lg rounded-tl-lg bg-no-repeat bg-serach-icon"
                   placeholder="Search"
                 />
+
+                <!-- cart detail with badge -->
                 <div
-                  class="cart relative rounded-tr-lg rounded-br-lg before:h-4 before:w-px before:bg-zinc-100 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2"
+                  class="relative rounded-tr-lg rounded-br-lg before:h-4 before:w-px before:bg-zinc-100 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2"
                 >
                   <img
-                    src="/assets/cart.svg"
+                    src="/assets/vector/cart.svg"
                     alt="cart"
                     class="navbar-searchbar-cart-logo px-3 py-2"
                   />
                   <p
-                    class="navbar-searchbar-notifaction-bedge item-num absolute -top-3 -right-3 bg-red-500 text-white text-center px-2 py-1 text-xs xl:text-sm xl:size-7 xl:px-2 xl:py-1 rounded-full shadow-cartNum"
+                    class="absolute -top-3 -right-3 bg-red-500 text-white text-center px-2 py-1 text-xs xl:text-sm xl:size-7 xl:px-2 xl:py-1 rounded-full shadow-cart-num"
                   >
                     2
                   </p>
                 </div>
               </div>
 
-              <!-- Hamburger button screen <= 768px ? enable : disable -->
-              <button class="hamburger block md:hidden">
-                <img src="/assets/Menu.png" alt="menu icon" />
+              <!-- hamburger button screen <= 768px ? enable : disable -->
+              <button class="block md:hidden">
+                <img src="/assets/images/menu.png" alt="menu icon" />
               </button>
             </div>
           </div>
@@ -110,23 +119,23 @@
     </header>
     <!-- header end -->
 
-    <!-- main contant sections(Hero, Seervices, Feature, CTA) -->
+    <!-- main content sections(hero, services, feature, cta) -->
     <main>
-      <!-- Hero section start -->
-      <section class="hero">
+      <!-- hero section start -->
+      <section>
         <div class="custom-container">
           <div
-            class="hero-contant mt-20 sm:my-32 sm:flex sm:gap-10 md:gap-20 xl sm:items-center"
+            class="mt-20 sm:my-32 sm:flex sm:gap-10 md:gap-20 sm:items-center"
           >
-            <!-- Hero section description -->
-            <div class="hero-contant-desc xl:flex-1 xl:gap-44">
+            <!-- hero section description -->
+            <div class="xl:flex-1 xl:gap-44">
               <span
                 class="text-sm text-small-title px-4 py-2 items-center bg-rose-50 w-auto rounded-full inline xl:text-base"
               >
                 More than Faster
                 <img
-                  src="/assets/strawberry.png"
-                  alt="straeberry"
+                  src="/assets/images/strawberry.png"
+                  alt="strawberry"
                   class="h-6 inline"
                 />
               </span>
@@ -146,9 +155,7 @@
                 without getting out in this pandemic.
               </p>
 
-              <div
-                class="hero-contant-desc-btn mt-4 flex sm:flex-row gap-3 items-center"
-              >
+              <div class="mt-4 flex sm:flex-row gap-3 items-center">
                 <button
                   class="px-6 py-3 bg-rose-50 rounded-xl text-sm text-red-400 font-medium xl:text-xl xl:py-6 xl:px-10 border-x border-y border-red-400 hover:bg-red-400 hover:text-white transition-all duration-300 max-sm:px-3"
                 >
@@ -156,29 +163,29 @@
                 </button>
                 <button class="flex items-center group text-sm xl:text-xl">
                   <div
-                    class="hero-contant-desc-btn-playicon flex items-center p-4 md:p-7 rounded-full bg-white shadow-play"
+                    class="flex items-center p-4 md:p-7 rounded-full bg-white shadow-play"
                   >
-                    <img src="/assets/play.png" alt="play" class=" " />
+                    <img src="/assets/images/play.png" alt="play" />
                   </div>
                   Order Process
                 </button>
               </div>
             </div>
 
-            <!-- Hero section image -->
-            <div class="hero-contant-img xl:flex-1 xl:items-center">
-              <div
-                class="hero-contant-img-container w-fit mx-auto justify-items-end relative"
-              >
+            <!-- hero section image -->
+            <div class="xl:flex-1 xl:items-center">
+              <div class="w-fit mx-auto justify-items-end relative">
+                <!-- hero card 1 -->
                 <div
-                  class="hero-contant-img-card1 text-center rounded-xl px-12 pb-0 pt-2 bg-white w-auto absolute left-hero-card1-md hidden md:block md:scale-50 xl:scale-100 -left-11/20 -top-1/20 lg:-left-7/20 lg:top-3/20 shadow-hero-card"
+                  class="text-center rounded-xl px-12 pb-0 pt-2 bg-white w-auto absolute left-hero-card1-md hidden md:block md:scale-50 xl:scale-90 mac:scale-100 -left-11/20 -top-1/20 lg:-left-7/20 lg:top-3/20 shadow-hero-card"
                 >
                   <img
-                    src="/assets/orange.png"
+                    src="/assets/images/orange.png"
                     alt="orange"
-                    class="hero-contant-img-card1-product drop-shadow-orange"
+                    class="drop-shadow-orange"
                   />
-                  <div class="hero-contant-img-card1-desc mt-7">
+                  <!-- card 1 description -->
+                  <div class="mt-7">
                     <span
                       class="text-xs block font-semibold mb-5 relative before:h-1 before:w-5 before:bg-amber-500 before:z-10 before:absolute before:-bottom-1 before:mx-7 before:rounded-sm"
                     >
@@ -190,36 +197,42 @@
                     >
                       Free Shipping
                     </p>
+                    <!-- card 1 image -->
                     <img
-                      src="/assets/buy.jpg"
+                      src="/assets/images/buy.jpg"
                       alt="buy icon"
-                      class="buy mx-auto -mb-6"
+                      class="mx-auto -mb-6 shadow-hero-card-buy"
                     />
                   </div>
                 </div>
 
+                <!-- hero card 2 -->
                 <div
-                  class="hero-contant-img-card2 flex items-center gap-4 rounded-xl p-5 bg-white absolute top-3/20 -right-1/20 md:top-1/10 md:-right-1/5 lg:top-3/25 lg:-right-1/10 shadow-hero-card scale-75 lg:scale-75 md:scale-50 xl:scale-100 sm:scale-50"
+                  class="flex items-center gap-4 rounded-xl p-5 bg-white absolute top-3/20 -right-1/20 md:top-1/10 md:-right-1/5 lg:top-3/20 lg:-right-1/10 shadow-hero-card scale-75 lg:scale-75 md:scale-50 xl:scale-100 sm:scale-50 sm:top-1/20 sm:-rigth-1/5"
                 >
-                  <img src="/assets/alarm-clock-icon.png" alt="clock" />
-                  <div class="hero-contant-img-card2-container">
+                  <img src="/assets/images/alarm-clock-icon.png" alt="clock" />
+                  <div>
                     <span class="font-bold">Delivery</span>
                     <p class="text-neutral-400">30 Min</p>
                   </div>
                 </div>
-                <img src="/assets/HeaderImage.png" alt="Header Image" />
+                <img
+                  src="/assets/images/header-image.png"
+                  alt="header image"
+                  class="w-full"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <!-- Hero section end -->
+      <!-- hero section end -->
 
       <!-- services section start -->
-      <section class="services bg-red-50 py-14 text-center">
+      <section class="bg-red-50 py-14 text-center">
         <div class="custom-container">
-          <!-- Service section description -->
-          <div class="service-contant mb-12">
+          <!-- service section description -->
+          <div class="mb-12">
             <span class="section-tagline text-red-500">What we serve</span>
             <h2 class="section-heading">
               fruit and vegetable delivered <br />
@@ -227,20 +240,20 @@
             </h2>
           </div>
 
-          <!-- Services list card -->
+          <!-- services list card -->
           <div
-            class="services-card-container flex items-center xl:gap-16 gap-7 sm:flex-wrap lg:flex-nowrap justify-center mx-auto flex-col sm:flex-row"
+            class="flex items-center xl:gap-16 gap-7 sm:flex-wrap lg:flex-nowrap justify-center mx-auto flex-col sm:flex-row"
           >
             <!-- Service 1 card -->
             <div class="relative group h-fit">
               <div
-                class="card-hover absolute top-0 left-0 h-full rounded-xl max-w-80 w-full bg-red-500 group-hover:-rotate-2 origin-top-left group-hover:scale-105 transition-all duration-300"
+                class="absolute top-0 left-0 h-full rounded-xl max-w-80 w-full bg-red-500 group-hover:-rotate-2 origin-top-left group-hover:scale-105 transition-all duration-300"
               ></div>
               <div
-                class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full relative"
+                class="bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full relative"
               >
                 <img
-                  src="/assets/shipping.png"
+                  src="/assets/images/shipping.png"
                   class="mx-auto mb-12 h-16 max-sm:h-10"
                   alt="shipping"
                 />
@@ -252,17 +265,16 @@
                 </p>
               </div>
             </div>
-
             <!-- service 2 card -->
             <div class="relative group h-fit">
               <div
-                class="card-hover absolute top-0 left-0 h-full rounded-xl max-w-80 w-full bg-red-500 group-hover:-rotate-2 origin-top-left group-hover:scale-105 transition-all duration-300"
+                class="absolute top-0 left-0 h-full rounded-xl max-w-80 w-full bg-red-500 group-hover:-rotate-2 origin-top-left group-hover:scale-105 transition-all duration-300"
               ></div>
               <div
-                class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full relative"
+                class="bg-white px-6 py-14 rounded-xl max-w-80 w-full max-h-100 h-full relative"
               >
                 <img
-                  src="/assets//cash.png"
+                  src="/assets/images/cash.png"
                   class="mx-auto mb-12 h-16 max-sm:h-10"
                   alt="cash icon"
                 />
@@ -277,13 +289,13 @@
             <!-- service 3 card -->
             <div class="relative group h-fit">
               <div
-                class="card-hover absolute top-0 left-0 h-full rounded-xl max-w-80 w-full bg-red-500 group-hover:-rotate-2 origin-top-left group-hover:scale-105 transition-all duration-300"
+                class="absolute top-0 left-0 h-full rounded-xl max-w-80 w-full bg-red-500 group-hover:-rotate-2 origin-top-left group-hover:scale-105 transition-all duration-300"
               ></div>
               <div
-                class="services-card bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full relative"
+                class="bg-white px-7 py-14 rounded-xl max-w-80 w-full max-h-100 h-full relative"
               >
                 <img
-                  src="/assets/secureCheckout.png"
+                  src="/assets/images/secure-checkout.png"
                   class="mx-auto mb-12 h-16 max-sm:h-10"
                   alt="secure checkout"
                 />
@@ -300,21 +312,23 @@
       </section>
       <!-- services section end -->
 
-      <!-- Feature section start -->
-      <section class="features mb-4 lg:py-28 md:py-16 py-12">
+      <!-- feature section start -->
+      <section class="mb-4 lg:py-28 md:py-16 py-12">
         <div class="custom-container">
           <!-- feature 1 section start -->
           <div
-            class="feature1 sm:flex sm:items-center sm:justify-between gap-20 xl:gap-28"
+            class="sm:flex sm:items-center sm:justify-between gap-20 xl:gap-28"
           >
-            <!-- Feature 1 image part -->
-            <div class="feature1-img relative sm:flex-1 items:center">
-              <div class="feature1-img-container relative w-fit">
-                <img src="/assets/Feature1.png" alt="feature 1 image" />
+            <!-- feature 1 image part -->
+            <div class="relative sm:flex-1 items:center">
+              <div class="relative w-fit">
+                <img src="/assets/images/feature1.png" alt="feature 1 image" />
+                <!-- feature 1 card -->
                 <div
-                  class="feature1-card hidden sm:absolute md:top-11/20 md:-right-1/5 lg:-right-1/10 md:-translate-y-1/2 py-8 px-4 md:bg-white md:rounded-xl md:block shadow-feature-card md:scale-50 xl:scale-100"
+                  class="hidden sm:absolute md:top-11/20 md:-right-1/5 lg:-right-1/10 md:-translate-y-1/2 py-8 px-4 md:bg-white md:rounded-xl md:block shadow-feature-card md:scale-50 xl:scale-100"
                 >
-                  <div class="feature1-img-card-detail">
+                  <!-- feature 1 card detail -->
+                  <div>
                     <span
                       class="text-lg sm:text-base leading-4 tracking-tight font-bold sm:text-center block w-full"
                     >
@@ -323,30 +337,30 @@
                     <p
                       class="text-xs font-medium leading-3 text-neutral-400 mt-2 sm:text-center"
                     >
-                      Red Stovery
+                      Red strawberry
                     </p>
                     <img
-                      class="mx-auto my-[30px] h-[53px]"
-                      src="/assets/stovery.png"
-                      alt="stovery"
+                      class="mx-auto my-7 h-14"
+                      src="/assets/images/stovery.png"
+                      alt="strawberry"
                     />
                   </div>
 
-                  <div class="feature1-img-card-price">
-                    <div class="rating flex items-center gap-1">
-                      <img src="/assets/star.png" alt="rating start" />
+                  <div>
+                    <div class="flex items-center gap-1">
+                      <img src="/assets/images/star.png" alt="rating start" />
                       <p>3.8</p>
                     </div>
-                    <div class="price flex justify-between items-center gap-14">
+                    <div class="flex justify-between items-center gap-14">
                       <p
                         class="text-2xl sm:text-xl font-bold leading-5 tracking-tighter"
                       >
                         $49.66
                       </p>
                       <button
-                        class="p-[11px] text-white font-extralight bg-red-500 rounded-lg"
+                        class="p-2.5 text-white font-extralight bg-red-500 rounded-lg"
                       >
-                        <img src="/assets/add.svg" alt="Plus" />
+                        <img src="/assets/vector/add.svg" alt="Plus" />
                       </button>
                     </div>
                   </div>
@@ -354,8 +368,8 @@
               </div>
             </div>
 
-            <!-- feature 2 description -->
-            <div class="feature1-contant w-full sm:flex-1 mt-10">
+            <!-- feature 1 description -->
+            <div class="w-full sm:flex-1 mt-10">
               <span class="section-tagline text-emerald-600">
                 WHY CHOOSE US
               </span>
@@ -375,26 +389,27 @@
               </button>
             </div>
           </div>
-          <!-- Feature 1 section end -->
+          <!-- feature 1 section end -->
 
-          <!-- Feature 2 section start -->
+          <!-- feature 2 section start -->
           <div
-            class="feature2 mt-20 sm:flex sm:flex-row-reverse sm:justify-between sm:items-center gap-20 sm:gap-14 xl:gap-28 xl:"
+            class="mt-20 sm:flex sm:flex-row-reverse sm:justify-between sm:items-center gap-20 sm:gap-14 xl:gap-28"
           >
-            <!-- Feature 2 image part -->
-            <div class="feature2-img mt-10 flex-1 xl:mt-0 items-center">
-              <div class="feature2-img-container relative w-fit">
+            <!-- feature 2 image part -->
+            <div class="mt-10 flex-1 xl:mt-0 items-center">
+              <div class="relative w-fit">
                 <img
-                  src="/assets/Feature2.png"
+                  src="/assets/images/feature2.png"
                   alt="feature 2 image"
                   class="mx-auto"
                 />
 
+                <!-- feature 2 card -->
                 <div
-                  class="feature2-img-card bg-white rounded-xl hidden sm:block absolute sm:top-1/2 sm:-right-9/20 -translate-y-1/2 -translate-x-1/2 lg:top-53/100 lg:-right-7/20 md:top-11/20 md:-right-9/20 text-center w-fit p-4 shadow-feature-card scale-50 md:scale-50 lg:scale-75 xl:scale-100 top-1/2"
+                  class="bg-white rounded-xl hidden sm:block absolute sm:top-1/2 sm:-right-31/50 -translate-y-1/2 -translate-x-1/2 lg:top-53/100 lg:-right-19/50 md:top-11/20 md:-right-9/20 text-center w-fit p-4 shadow-feature-card scale-50 md:scale-50 lg:scale-75 xl:scale-100 top-1/2 xl:top-12/25 xl:-right-19/50"
                 >
                   <img
-                    src="/assets/bike.png"
+                    src="/assets/images/bike.png"
                     alt="bike"
                     class="bg-red-50 rounded-xl mb-6"
                   />
@@ -412,8 +427,8 @@
               </div>
             </div>
 
-            <!-- Feature 2 description -->
-            <div class="feature2-contant mt-10 flex-1">
+            <!-- feature 2 description -->
+            <div class="mt-10 flex-1">
               <span class="section-tagline text-amber-300">
                 HOME DELIVERY
               </span>
@@ -433,18 +448,18 @@
               </button>
             </div>
           </div>
-          <!-- Feature 2 section end -->
+          <!-- feature 2 section end -->
         </div>
       </section>
-      <!-- Feature section end -->
+      <!-- feature section end -->
 
-      <!-- CTA section start -->
-      <section class="cta bg-red-50 py-9 xl:py-14">
+      <!-- cta section start -->
+      <section class="bg-red-50 py-9 xl:py-14">
         <div
           class="custom-container sm:flex sm:items-center sm:flex-row-reverse sm:gap-20 sm:justify-between"
         >
           <!-- CTA section Description -->
-          <div class="cta-contant flex-1">
+          <div class="flex-1">
             <span class="section-tagline text-red-500">Download our app</span>
             <h2 class="section-heading">
               Get the Groceries app order more easily.
@@ -453,22 +468,22 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut.
             </p>
-            <div class="cta-contant-btns space-x-5 space-y-5 mt-7 xl:space-x-4">
+            <div class="space-x-5 space-y-5 mt-7 xl:space-x-4">
               <button
-                class="app-store px-3 py-2 text-base border-stone-200 border-x border-y rounded-xl xl:text-lg cursor-pointer hover:bg-white transition-all duration-300"
+                class="px-3 py-2 text-base border-stone-200 border-x border-y rounded-xl xl:text-lg cursor-pointer hover:bg-white transition-all duration-300"
               >
                 <img
-                  src="/assets/apple.png"
+                  src="/assets/images/apple.png"
                   alt="app store"
                   class="h-6 mr-3 inline xl:h-11"
                 />
                 App Store
               </button>
               <button
-                class="play-store px-4 py-2 text-base border-stone-200 border-x border-y rounded-xl xl:text-lg cursor-pointer hover:bg-white transition-all duration-300"
+                class="px-4 py-2 text-base border-stone-200 border-x border-y rounded-xl xl:text-lg cursor-pointer hover:bg-white transition-all duration-300"
               >
                 <img
-                  src="/assets/playStore.png"
+                  src="/assets/images/play-store.png"
                   alt="play store"
                   class="mr-3 inline h-6 xl:h-11"
                 />
@@ -477,33 +492,31 @@
             </div>
           </div>
 
-          <!-- CTA section Image part -->
-          <div class="cta-img flex-1">
+          <!-- CTA section image part -->
+          <div class="flex-1">
             <img
-              src="/assets/mobileMockup.png"
-              alt="Mobile Mockup"
+              src="/assets/images/mobile-mockup.png"
+              alt="mobile mockup"
               class="mt-10 mx-auto sm:mt-0"
             />
           </div>
         </div>
       </section>
-      <!-- CTA section end -->
+      <!-- cta section end -->
     </main>
-    <!-- main contant end -->
+    <!-- main content end -->
 
     <!-- footer start -->
     <footer>
       <div class="custom-container">
-        <!-- Footer top which contain company logo, small description, addresss & various links -->
+        <!-- footer top which contain company logo, small description, address & various links -->
         <div
-          class="footer-top py-9 sm:flex sm:items-start sm:justify-between md:gap-16 xl:gap-48 gap-12"
+          class="py-9 sm:flex sm:items-start sm:justify-between md:gap-16 xl:gap-48 gap-12"
         >
-          <!-- Company logo & description -->
-          <div class="footer-company-detail flex-1 max-w-2xs w-full">
-            <img src="/assets//logo.png" alt="logo" />
-            <p
-              class="footer-company-detail-desc text-text-light text-sm mt-4 xl:text-base"
-            >
+          <!-- company logo & description -->
+          <div class="flex-1 max-w-2xs w-full">
+            <img src="/assets/images/logo.png" alt="logo" />
+            <p class="text-text-light text-sm mt-4 xl:text-base">
               Fast delivery, which is active all over the world, serves with
               many transportation vehicles.
             </p>
@@ -511,17 +524,15 @@
 
           <!--various Links -->
           <div
-            class="footer-links mt-14 sm:mt-0 flex flex-wrap xl:gap-10 max-sm:gap-y-7 justify-between flex-1 gap-y-8 max-sm:justify-around max-sm:gap-7"
+            class="mt-14 sm:mt-0 flex flex-wrap xl:gap-10 max-sm:gap-y-7 justify-between flex-1 gap-y-8 max-sm:justify-around max-sm:gap-7"
           >
-            <!-- Company links -->
-            <div class="footer-links-company">
-              <span
-                class="company-head text-lg sm:text-base font-semibold xl:text-lg"
-              >
+            <!-- company links -->
+            <div>
+              <span class="text-lg sm:text-base font-semibold xl:text-lg">
                 Company
               </span>
               <div
-                class="company-link-container flex flex-col gap-2 mt-3 text-text-light text-sm xl:text-base"
+                class="flex flex-col gap-2 mt-3 text-text-light text-sm xl:text-base"
               >
                 <a href="#" class="footer-link">About Us</a>
                 <a href="#" class="footer-link">Blog</a>
@@ -530,13 +541,11 @@
               </div>
             </div>
 
-            <!-- Services links -->
-            <div class="footer-links-services">
-              <span class="services-head text-lg font-semibold xl:text-lg">
-                Services
-              </span>
+            <!-- services links -->
+            <div>
+              <span class="text-lg font-semibold xl:text-lg"> Services </span>
               <div
-                class="services-link-container flex flex-col gap-2 mt-3 text-text-light text-sm xl:text-base"
+                class="flex flex-col gap-2 mt-3 text-text-light text-sm xl:text-base"
               >
                 <a href="#" class="footer-link">Order tracking</a>
                 <a href="#" class="footer-link">Wish List</a>
@@ -545,13 +554,13 @@
               </div>
             </div>
 
-            <!-- Get In Touch -->
-            <div class="footer-links-getInTouch">
-              <span class="getInTouch-head text-base font-semibold xl:text-lg">
+            <!-- get in touch -->
+            <div>
+              <span class="text-base font-semibold xl:text-lg">
                 Get In Touch
               </span>
               <p
-                class="getInTouch-link mt-3 text-text-light text-sm max-w-52 w-full xl:text-base hover:text-text-dark leading-7"
+                class="mt-3 text-text-light text-sm max-w-52 w-full xl:text-base hover:text-text-dark leading-7"
               >
                 Subscribe to our weekly Newsletter and receive updates via
                 email.
@@ -560,12 +569,12 @@
           </div>
         </div>
 
-        <!-- Footer bottom which contain copyrights, T&C & Privacy&Policy -->
+        <!-- footer bottom which contains copyrights, t&c, privacy & policy -->
         <div
-          class="footer-bottom border-t border-gray-200 py-5 flex justify-between max-sm:flex-col max-sm:gap-y-3 items-center text-sm text-text-light xl:text-base"
+          class="border-t border-gray-200 py-5 flex justify-between max-sm:flex-col max-sm:gap-y-3 items-center text-sm text-text-light xl:text-base"
         >
-          <p>All Rights Reserved @ BESNIK 2021</p>
-          <div class="footer-bottom-links space-x-6">
+          <p>All Rights Reserved &copy; BESNIK 2021</p>
+          <div class="space-x-6">
             <a href="#" class="hover:text-text-dark">Terms & Conditions</a>
             <a href="#" class="hover:text-text-dark">Privacy & Policy</a>
           </div>
